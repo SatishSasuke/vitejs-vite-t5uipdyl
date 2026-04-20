@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import { 
   ShieldCheck, 
   Copy, 
@@ -30,9 +30,9 @@ const MOCK_DATA = {
 };
 
 export default function App() {
-  const [copiedField, setCopiedField] = useState(null);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
 
-  const handleCopy = (text, field) => {
+  const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
@@ -263,8 +263,18 @@ export default function App() {
   );
 }
 
-// Helper Component for Data Fields
-function DetailItem({ label, value, icon, onCopy, isCopied, truncate = true }) {
+// TypeScript Interface defining the exact types required
+interface DetailItemProps {
+  label: string;
+  value: string;
+  icon: ReactNode;
+  onCopy?: () => void;
+  isCopied?: boolean;
+  truncate?: boolean;
+}
+
+// Helper Component for Data Fields (Now strongly typed!)
+function DetailItem({ label, value, icon, onCopy, isCopied, truncate = true }: DetailItemProps) {
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] uppercase tracking-wider font-semibold">
