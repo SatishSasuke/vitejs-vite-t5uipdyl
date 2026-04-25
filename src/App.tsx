@@ -30,8 +30,8 @@ const MOCK_DATA = {
   artist: "Elena Rostova",
   year: "2026",
   description: "A mixed-media exploration of digital permanence and physical decay, utilizing gold leaf, oil, and embedded NFC/QR technologies.",
-  // Updated to a white marble bust on a pure black background for a flawless transparent effect
-  imageUrl: "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?auto=format&fit=crop&q=80&w=800",
+  // Points to the image you will upload to the "public" folder
+  imageUrl: "/sculpture.png",
   artAssistId: "AA-982-441-OX",
   serialNumber: "SN-2026-04-1901",
   ledgerAddress: "0x71C7656EC7ab88b098defB751B7401B5f6d89B83",
@@ -56,16 +56,28 @@ export default function App() {
       {/* Global CSS for Animations */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes float3D {
-          0% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); filter: drop-shadow(0 20px 20px rgba(212,175,55,0.1)); }
-          50% { transform: translateY(-20px) rotateY(3deg) rotateX(2deg); filter: drop-shadow(0 40px 30px rgba(212,175,55,0.3)); }
-          100% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); filter: drop-shadow(0 20px 20px rgba(212,175,55,0.1)); }
+          0% { 
+            transform: translateY(0px) rotateY(-15deg) rotateX(8deg); 
+            filter: drop-shadow(25px 25px 20px rgba(0,0,0,0.9)) drop-shadow(-10px -10px 20px rgba(212,175,55,0.15)) brightness(0.95) contrast(1.1); 
+          }
+          50% { 
+            transform: translateY(-30px) rotateY(15deg) rotateX(-5deg); 
+            filter: drop-shadow(-25px 40px 30px rgba(0,0,0,0.9)) drop-shadow(15px 15px 30px rgba(212,175,55,0.4)) brightness(1.25) contrast(1.2); 
+          }
+          100% { 
+            transform: translateY(0px) rotateY(-15deg) rotateX(8deg); 
+            filter: drop-shadow(25px 25px 20px rgba(0,0,0,0.9)) drop-shadow(-10px -10px 20px rgba(212,175,55,0.15)) brightness(0.95) contrast(1.1); 
+          }
+        }
+        .sculpture-container {
+          /* Deepened perspective creates a much stronger 3D tilt effect */
+          perspective: 800px;
+          transform-style: preserve-3d;
         }
         .animate-float {
-          animation: float3D 6s ease-in-out infinite;
-        }
-        .blend-sculpture {
-          /* Lighten blend mode makes the black background of the image completely transparent */
-          mix-blend-mode: lighten; 
+          animation: float3D 8s ease-in-out infinite;
+          transform-style: preserve-3d;
+          will-change: transform, filter;
         }
         .bento-card {
           background: linear-gradient(145deg, #111111 0%, #0a0a0a 100%);
@@ -99,12 +111,12 @@ export default function App() {
         {/* Background Ambience */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-        {/* 3D Floating Sculpture */}
-        <div className="relative z-10 animate-float flex flex-col items-center mb-8">
+        {/* 3D Floating Sculpture Container */}
+        <div className="relative z-10 sculpture-container flex flex-col items-center mb-8">
           <img 
             src={MOCK_DATA.imageUrl} 
             alt="Sculpture"
-            className="w-[280px] h-[350px] sm:w-[350px] sm:h-[450px] object-contain blend-sculpture grayscale contrast-125 brightness-110"
+            className="animate-float w-[280px] h-[350px] sm:w-[350px] sm:h-[450px] object-contain drop-shadow-2xl"
             draggable="false"
           />
         </div>
