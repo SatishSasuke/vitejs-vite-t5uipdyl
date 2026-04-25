@@ -14,8 +14,8 @@ import {
 } from 'lucide-react';
 
 const MOCK_DATA = {
-  title: "Ethereal Convergence #04",
-  artist: "Elena Rostova",
+  title: "Ishwar Archives",
+  artist: "Raajashri Vegneshwar Nair",
   year: "2026",
   description: "A mixed-media exploration of digital permanence and physical decay, utilizing gold leaf, oil, and embedded NFC/QR technologies.",
   imageUrl: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=1600",
