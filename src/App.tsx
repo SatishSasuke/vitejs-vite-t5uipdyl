@@ -10,15 +10,28 @@ import {
   Link as LinkIcon, 
   Layers,
   CheckCircle2,
-  Smartphone
+  Smartphone,
+  Award
 } from 'lucide-react';
 
+// --- Types & Interfaces ---
+interface DetailItemProps {
+  label: string;
+  value: string;
+  icon: ReactNode;
+  onCopy?: () => void;
+  isCopied?: boolean;
+  truncate?: boolean;
+}
+
+// --- Mock Data ---
 const MOCK_DATA = {
-  title: "Ishwar Archives",
-  artist: "Raajashri Vegneshwar Nair",
+  title: "Ethereal Convergence #04",
+  artist: "Elena Rostova",
   year: "2026",
   description: "A mixed-media exploration of digital permanence and physical decay, utilizing gold leaf, oil, and embedded NFC/QR technologies.",
-  imageUrl: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=1600",
+  // High contrast white sculpture for the 3D blend effect
+  imageUrl: "https://images.unsplash.com/photo-1608222303525-4fc1422792c0?auto=format&fit=crop&q=80&w=800",
   artAssistId: "AA-982-441-OX",
   serialNumber: "SN-2026-04-1901",
   ledgerAddress: "0x71C7656EC7ab88b098defB751B7401B5f6d89B83",
@@ -39,96 +52,96 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-gray-300 font-sans selection:bg-[#D4AF37] selection:text-black pb-20">
+    <div className="min-h-screen bg-[#050505] text-gray-300 font-sans selection:bg-[#D4AF37] selection:text-black">
+      {/* Global CSS for Animations */}
       <style dangerouslySetInnerHTML={{__html: `
-        @keyframes movingGlow {
-          0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-          33% { transform: translate(40px, -40px) scale(1.1); opacity: 0.6; }
-          66% { transform: translate(-30px, 50px) scale(0.9); opacity: 0.4; }
-          100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+        @keyframes float3D {
+          0% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); filter: drop-shadow(0 20px 20px rgba(212,175,55,0.1)); }
+          50% { transform: translateY(-20px) rotateY(3deg) rotateX(2deg); filter: drop-shadow(0 40px 30px rgba(212,175,55,0.3)); }
+          100% { transform: translateY(0px) rotateY(0deg) rotateX(0deg); filter: drop-shadow(0 20px 20px rgba(212,175,55,0.1)); }
         }
-        .glow-orb-1 {
-          animation: movingGlow 10s infinite alternate ease-in-out;
-          background: radial-gradient(circle, rgba(212,175,55,0.4) 0%, rgba(212,175,55,0) 70%);
+        .animate-float {
+          animation: float3D 6s ease-in-out infinite;
         }
-        .glow-orb-2 {
-          animation: movingGlow 14s infinite alternate-reverse ease-in-out;
-          animation-delay: -5s;
-          background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(10,10,10,0) 70%);
+        .blend-sculpture {
+          /* This removes the black background from the image, leaving only the white sculpture */
+          mix-blend-mode: screen; 
+          mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+          -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
         }
-        .glass-panel {
-          background: rgba(20, 20, 20, 0.6);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(212, 175, 55, 0.15);
+        .bento-card {
+          background: linear-gradient(145deg, #111111 0%, #0a0a0a 100%);
+          border: 1px solid rgba(212, 175, 55, 0.1);
+          box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+          transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+          border-color: rgba(212, 175, 55, 0.3);
+          box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
         }
       `}} />
 
-      {/* Header */}
-      <header className="sticky top-0 z-50 glass-panel border-b-0 border-b-[#D4AF37]/20 px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-2 text-[#D4AF37]">
-          <ShieldCheck size={24} />
-          <span className="font-bold tracking-widest uppercase text-sm">Authenticity Record</span>
+      {/* Navbar */}
+      <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-[#D4AF37]/10 px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <Award className="text-[#D4AF37]" size={24} />
+          <span className="font-semibold tracking-widest uppercase text-xs text-white">Provenance Passport</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-green-400 bg-green-400/10 px-3 py-1.5 rounded-full border border-green-400/20">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+        <div className="flex items-center gap-2 text-[10px] sm:text-xs text-[#D4AF37] border border-[#D4AF37]/30 px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold">
+          <span className="relative flex h-1.5 w-1.5 mr-1">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#D4AF37]"></span>
           </span>
-          Verified Asset
+          Blockchain Verified
         </div>
-      </header>
+      </nav>
 
-      {/* Hero Section with Moving Glow */}
-      <section className="relative w-full overflow-hidden flex flex-col items-center justify-center pt-16 pb-20 px-4">
-        {/* Animated Background Glow */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-          <div className="glow-orb-1 absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full blur-2xl"></div>
-          <div className="glow-orb-2 absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full blur-3xl ml-20 mt-20"></div>
+      {/* Cinematic Hero Section */}
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-24 px-4 overflow-hidden">
+        {/* Background Ambience */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+        {/* 3D Floating Sculpture */}
+        <div className="relative z-10 animate-float flex flex-col items-center mb-8">
+          <img 
+            src={MOCK_DATA.imageUrl} 
+            alt="Sculpture"
+            className="w-[280px] h-[350px] sm:w-[350px] sm:h-[450px] object-cover blend-sculpture grayscale contrast-125 brightness-110"
+            draggable="false"
+          />
         </div>
 
-        {/* Artwork Display */}
-        <div className="relative z-10 w-full max-w-3xl flex flex-col items-center">
-          <div className="relative p-2 rounded-sm bg-gradient-to-b from-[#D4AF37]/40 to-transparent shadow-[0_0_40px_rgba(212,175,55,0.15)]">
-            <img 
-              src={MOCK_DATA.imageUrl} 
-              alt={MOCK_DATA.title}
-              className="w-full max-w-md h-auto object-cover rounded-sm border border-[#1a1a1a]"
-            />
-          </div>
+        {/* Hero Typography */}
+        <div className="relative z-10 text-center flex flex-col items-center max-w-2xl">
+          <h1 className="text-4xl sm:text-6xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+            Ishwar Archives
+          </h1>
+          <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-6"></div>
+          <p className="text-gray-400 text-sm sm:text-base font-light tracking-wide max-w-lg leading-relaxed px-4">
+            A permanent, immutable record of authenticity and ownership, secured on the blockchain for future generations.
+          </p>
           
-          <div className="mt-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">
-              {MOCK_DATA.title}
-            </h1>
-            <p className="text-[#D4AF37] text-lg tracking-wide uppercase">
-              By {MOCK_DATA.artist} • {MOCK_DATA.year}
-            </p>
-            <p className="mt-4 max-w-xl text-gray-400 mx-auto text-sm leading-relaxed">
-              {MOCK_DATA.description}
-            </p>
-            
-            <div className="mt-10 flex justify-center">
-              <button className="px-8 py-3 rounded-full border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300 font-semibold tracking-widest uppercase text-sm shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]">
-                View Galleries
-              </button>
-            </div>
-          </div>
+          <button className="mt-10 px-8 py-3.5 rounded-none border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs relative group overflow-hidden">
+            <span className="relative z-10">View Galleries</span>
+            <div className="absolute inset-0 h-full w-0 bg-[#D4AF37] transition-all duration-500 ease-out group-hover:w-full"></div>
+          </button>
         </div>
       </section>
 
-      {/* Main Content Grid */}
-      <main className="relative z-10 max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-6">
+      {/* Bento Box Dashboard UI */}
+      <main className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-12 gap-4">
         
-        {/* Left Column: Provenance & Technical Details */}
-        <div className="md:col-span-8 space-y-6">
+        {/* Column 1: Core Details (Spans 8 cols on desktop) */}
+        <div className="md:col-span-8 flex flex-col gap-4">
           
-          <div className="glass-panel rounded-xl p-6 md:p-8">
-            <div className="flex items-center gap-3 mb-6 border-b border-[#D4AF37]/20 pb-4">
-              <Fingerprint className="text-[#D4AF37]" size={24} />
-              <h2 className="text-xl font-semibold text-white">Digital Passport & Provenance</h2>
+          {/* Main Provenance Card */}
+          <div className="bento-card rounded-2xl p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-8">
+              <Fingerprint className="text-[#D4AF37]" size={20} />
+              <h2 className="text-lg font-light text-white tracking-widest uppercase">Cryptographic Identity</h2>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <DetailItem 
                 label="Art Assist ID" 
                 value={MOCK_DATA.artAssistId} 
@@ -143,19 +156,6 @@ export default function App() {
                 onCopy={() => handleCopy(MOCK_DATA.serialNumber, 'serial')}
                 isCopied={copiedField === 'serial'}
               />
-              <DetailItem 
-                label="Creator ID" 
-                value={MOCK_DATA.creatorId} 
-                icon={<CheckCircle2 size={14} />} 
-                onCopy={() => handleCopy(MOCK_DATA.creatorId, 'creator')}
-                isCopied={copiedField === 'creator'}
-              />
-              <DetailItem 
-                label="Token Standard" 
-                value={MOCK_DATA.tokenStandard} 
-                icon={<Box size={14} />} 
-              />
-              
               <div className="sm:col-span-2">
                 <DetailItem 
                   label="Ledger Address (Smart Contract)" 
@@ -166,129 +166,122 @@ export default function App() {
                   truncate={false}
                 />
               </div>
-
-              <DetailItem 
-                label="Token ID" 
-                value={MOCK_DATA.tokenId} 
-                icon={<Layers size={14} />} 
-                onCopy={() => handleCopy(MOCK_DATA.tokenId, 'token')}
-                isCopied={copiedField === 'token'}
-              />
-              <DetailItem 
-                label="Blockchain Network" 
-                value={MOCK_DATA.blockchain} 
-                icon={<Box size={14} />} 
-              />
-              <div className="sm:col-span-2">
-                <DetailItem 
-                  label="Metadata Storage" 
-                  value={MOCK_DATA.metadataType} 
-                  icon={<LinkIcon size={14} />} 
-                />
-              </div>
             </div>
           </div>
 
-          {/* Creation Process Video */}
-          <div className="glass-panel rounded-xl p-6 md:p-8">
-            <div className="flex items-center gap-3 mb-6 border-b border-[#D4AF37]/20 pb-4">
-              <Play className="text-[#D4AF37]" size={24} />
-              <h2 className="text-xl font-semibold text-white">The Making Of</h2>
-            </div>
-            <div className="aspect-video w-full rounded-lg overflow-hidden border border-[#D4AF37]/20 bg-black relative group cursor-pointer">
-              {/* Fallback image placeholder for the iframe (simulate YouTube preview) */}
-              <img 
-                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=1600" 
-                alt="Video Thumbnail" 
-                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-[#D4AF37]/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Play className="text-black ml-1" size={32} fill="currentColor" />
-                </div>
+          {/* Secondary Details Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bento-card rounded-2xl p-6">
+              <h3 className="text-xs text-gray-500 uppercase tracking-widest mb-4">Token Standard</h3>
+              <div className="flex items-center gap-3 text-white">
+                <Box className="text-[#D4AF37]" size={20} />
+                <span className="font-mono text-lg">{MOCK_DATA.tokenStandard}</span>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                <p className="text-white font-medium">Studio Session: Ethereal Convergence</p>
-                <p className="text-gray-400 text-sm">Watch the artist's technique and process.</p>
+              <div className="mt-4 pt-4 border-t border-white/5">
+                <DetailItem 
+                  label="Token ID" 
+                  value={MOCK_DATA.tokenId} 
+                  icon={<Layers size={12} />} 
+                  onCopy={() => handleCopy(MOCK_DATA.tokenId, 'token')}
+                  isCopied={copiedField === 'token'}
+                />
+              </div>
+            </div>
+
+            <div className="bento-card rounded-2xl p-6">
+              <h3 className="text-xs text-gray-500 uppercase tracking-widest mb-4">Network & Storage</h3>
+              <div className="space-y-4">
+                <div>
+                  <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider block mb-1">Blockchain</span>
+                  <span className="text-sm text-gray-200">{MOCK_DATA.blockchain}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider block mb-1">Metadata</span>
+                  <span className="text-sm text-gray-200">{MOCK_DATA.metadataType}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider block mb-1">Creator ID</span>
+                  <span className="text-sm text-gray-200 font-mono">{MOCK_DATA.creatorId}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Actions & Mobile Experience */}
-        <div className="md:col-span-4 space-y-6">
+        {/* Column 2: Media & Actions (Spans 4 cols on desktop) */}
+        <div className="md:col-span-4 flex flex-col gap-4">
           
-          {/* Mobile Experience Call to Action */}
-          <div className="glass-panel rounded-xl p-6 flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-yellow-700 flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
-              <Smartphone className="text-black" size={32} />
+          {/* Physical Asset / QR Section */}
+          <div className="bento-card rounded-2xl p-8 flex flex-col items-center text-center justify-center flex-grow">
+            <QrCode className="text-[#D4AF37] mb-6 opacity-80" size={32} />
+            <div className="bg-white p-3 rounded-xl mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
+              {/* Using a placeholder QR image to make it look realistic */}
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ishwar-archives.vercel.app&color=000000&bgcolor=ffffff" alt="QR Code" className="w-[120px] h-[120px]" />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Mobile Fine Art Experience™</h3>
-            <p className="text-gray-400 text-sm mb-6">
-              Step into the virtual gallery. View in 3D, augmented reality, and explore high-resolution interpretive content.
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-2">
+              Physical Link
+            </h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
+              This QR code permanently anchors the physical sculpture to its digital ledger.
             </p>
-            <button className="w-full py-3 px-4 bg-white hover:bg-gray-200 text-black font-semibold rounded-lg transition-colors flex items-center justify-center gap-2">
-              <ExternalLink size={18} />
-              Launch Experience
-            </button>
           </div>
 
-          {/* QR Code Section */}
-          <div className="glass-panel rounded-xl p-6 flex flex-col items-center text-center">
-            <h3 className="text-sm font-semibold text-[#D4AF37] uppercase tracking-wider mb-4">
-              Physical Asset Link
-            </h3>
-            <div className="bg-white p-4 rounded-xl mb-4">
-              <QrCode className="text-black" size={140} strokeWidth={1} />
+          {/* Interactive Actions */}
+          <div className="bento-card rounded-2xl p-6 relative overflow-hidden group cursor-pointer flex items-center justify-between">
+            <div className="absolute right-0 top-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-2xl group-hover:bg-[#D4AF37]/20 transition-colors"></div>
+            <div>
+              <h3 className="text-sm font-medium text-white mb-1">Mobile AR Experience</h3>
+              <p className="text-xs text-gray-500">View object in your space</p>
             </div>
-            <p className="text-xs text-gray-500">
-              Scan from any device to access this immutable provenance record and view authenticity certificates.
-            </p>
+            <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform">
+              <Smartphone size={16} />
+            </div>
+          </div>
+
+          <div className="bento-card rounded-2xl p-6 relative overflow-hidden group cursor-pointer flex items-center justify-between">
+            <div className="absolute right-0 top-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors"></div>
+            <div>
+              <h3 className="text-sm font-medium text-white mb-1">The Making Of</h3>
+              <p className="text-xs text-gray-500">Studio session video</p>
+            </div>
+            <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+              <Play size={16} className="ml-0.5" />
+            </div>
           </div>
 
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="mt-20 border-t border-zinc-800 pt-8 pb-4 text-center">
-        <div className="flex items-center justify-center gap-2 text-zinc-500 mb-2">
-          <ShieldCheck size={16} />
-          <span className="text-sm">Secured by The Fine Art Ledger Protocol</span>
+      <footer className="border-t border-white/5 py-8 text-center bg-[#000000]">
+        <div className="flex items-center justify-center gap-2 text-zinc-500 mb-3">
+          <ShieldCheck size={14} />
+          <span className="text-xs tracking-widest uppercase">Secured by The Fine Art Ledger Protocol</span>
         </div>
-        <p className="text-xs text-zinc-600">
-          © 2026 Fine Art Provenance Infrastructure. All rights reserved.
+        <p className="text-[10px] text-zinc-600 uppercase tracking-widest">
+          © {new Date().getFullYear()} Ishwar Archives. All rights reserved.
         </p>
       </footer>
     </div>
   );
 }
 
-// TypeScript Interface defining the exact types required
-interface DetailItemProps {
-  label: string;
-  value: string;
-  icon: ReactNode;
-  onCopy?: () => void;
-  isCopied?: boolean;
-  truncate?: boolean;
-}
-
-// Helper Component for Data Fields (Now strongly typed!)
+// --- Helper Component ---
 function DetailItem({ label, value, icon, onCopy, isCopied, truncate = true }: DetailItemProps) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="flex items-center gap-1.5 text-xs text-[#D4AF37] uppercase tracking-wider font-semibold">
-        {icon}
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-1.5 text-[10px] text-gray-500 uppercase tracking-widest font-semibold">
+        <span className="text-[#D4AF37] opacity-80">{icon}</span>
         {label}
       </div>
-      <div className="flex items-center justify-between bg-black/40 border border-zinc-800 rounded-md p-3 group hover:border-[#D4AF37]/50 transition-colors">
-        <span className={`font-mono text-sm text-gray-200 ${truncate ? 'truncate max-w-[85%]' : 'break-all'}`}>
+      <div className="flex items-center justify-between bg-[#000000] border border-white/5 rounded-lg p-3 group hover:border-[#D4AF37]/30 transition-colors">
+        <span className={`font-mono text-sm text-gray-300 ${truncate ? 'truncate max-w-[85%]' : 'break-all'}`}>
           {value}
         </span>
         {onCopy && (
           <button 
             onClick={onCopy}
-            className="text-zinc-500 hover:text-[#D4AF37] transition-colors focus:outline-none"
+            className="text-zinc-600 hover:text-[#D4AF37] transition-colors focus:outline-none"
             title="Copy to clipboard"
           >
             {isCopied ? <CheckCircle2 size={16} className="text-green-500" /> : <Copy size={16} />}
