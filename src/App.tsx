@@ -30,8 +30,8 @@ const MOCK_DATA = {
   artist: "Elena Rostova",
   year: "2026",
   description: "A mixed-media exploration of digital permanence and physical decay, utilizing gold leaf, oil, and embedded NFC/QR technologies.",
-  // High contrast white sculpture for the 3D blend effect
-  imageUrl: "https://images.unsplash.com/photo-1608222303525-4fc1422792c0?auto=format&fit=crop&q=80&w=800",
+  // Updated to a white marble bust on a pure black background for a flawless transparent effect
+  imageUrl: "https://images.unsplash.com/photo-1618666012174-83b441c0bc76?auto=format&fit=crop&q=80&w=800",
   artAssistId: "AA-982-441-OX",
   serialNumber: "SN-2026-04-1901",
   ledgerAddress: "0x71C7656EC7ab88b098defB751B7401B5f6d89B83",
@@ -64,10 +64,8 @@ export default function App() {
           animation: float3D 6s ease-in-out infinite;
         }
         .blend-sculpture {
-          /* This removes the black background from the image, leaving only the white sculpture */
-          mix-blend-mode: screen; 
-          mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
-          -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+          /* Lighten blend mode makes the black background of the image completely transparent */
+          mix-blend-mode: lighten; 
         }
         .bento-card {
           background: linear-gradient(145deg, #111111 0%, #0a0a0a 100%);
@@ -106,7 +104,7 @@ export default function App() {
           <img 
             src={MOCK_DATA.imageUrl} 
             alt="Sculpture"
-            className="w-[280px] h-[350px] sm:w-[350px] sm:h-[450px] object-cover blend-sculpture grayscale contrast-125 brightness-110"
+            className="w-[280px] h-[350px] sm:w-[350px] sm:h-[450px] object-contain blend-sculpture grayscale contrast-125 brightness-110"
             draggable="false"
           />
         </div>
