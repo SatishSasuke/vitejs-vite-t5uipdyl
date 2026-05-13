@@ -275,7 +275,7 @@ export default function App() {
                 <QrCode className="text-[#D4AF37] mb-6 opacity-80" size={32} />
                 <div className="bg-white p-3 rounded-xl mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
                   {/* UPDATE THIS IF YOUR QR CODE IS A .JPG */}
-                  <img src="/qrcode.png" alt="QR Code" className="w-[120px] h-[120px] object-contain" />
+                  <img src="/certificate.png" alt="QR Code" className="w-[120px] h-[120px] object-contain" />
                 </div>
                 <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-2">
                   Physical Link
