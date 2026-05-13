@@ -4,17 +4,14 @@ import {
   Copy, 
   ExternalLink, 
   QrCode, 
-  Play, 
   Fingerprint, 
   Box, 
   Link as LinkIcon, 
   Layers,
   CheckCircle2,
-  Smartphone,
-  Award,
-  ArrowLeft,
   Sparkles,
-  Diamond
+  Diamond,
+  ArrowLeft
 } from 'lucide-react';
 
 // --- Types & Interfaces ---
@@ -35,7 +32,7 @@ const MOCK_DATA = {
   year: "2026",
   descriptionLink: "https://pemetaanbudaya.jkkn.gov.my/en/senibudaya/detail/741",
   descriptionText: "Tarian Dabus | The Warrior’s Trance Specific Traditional Dance Motif",
-  imageUrl: "/sculpture.png",
+  imageUrl: "/sculpture.png", // Assuming your main floating image is still lowercase
   artRegistryId: "IA-VOL4-FIRE-005",
   serialNumber: "SN-2026-04-1901",
   ledgerAddress: "0x71C7656EC7ab88b098defB751B7401B5f6d89B83",
@@ -46,20 +43,19 @@ const MOCK_DATA = {
   metadataType: "IPFS / Decentralized"
 };
 
-// Separated into Body and Soul for better UI alignment
+// --- UPDATED MATERIAL LISTS ---
+// Notice how the image paths perfectly match the Capitalization and .png extensions you provided!
 const VESSEL_MATERIALS = [
   {
     name: "Limestone",
     type: "Body",
-    // Fresh Unsplash link for a beautiful dark stone texture
-    image: "/Limestone.png",
+    image: "/Limestone.png", 
     desc: "A sedimentary rock forming the structural foundation, representing ancient earth and grounding physical presence."
   },
   {
     name: "Calcite",
     type: "Body",
-    // Fresh Unsplash link for a luminous white crystal
-    image: "/Calcite.png",
+    image: "/Calcite.png", 
     desc: "A carbonate mineral providing luminous structural integrity, channeling energy through its crystalline lattice."
   }
 ];
@@ -68,21 +64,19 @@ const ESSENCE_MATERIALS = [
   {
     name: "Meteorite",
     type: "Soul",
-    // Fresh Unsplash link for a dark, cosmic asteroid texture
-    image: "/Metoerite.png",
+    image: "/Meteorite.png", 
     desc: "Extraterrestrial forged iron-nickel, carrying the cosmic signature and raw primordial fire of the universe."
   },
   {
     name: "Ruby",
     type: "Soul",
-    // Fresh Unsplash link for a raw red gemstone
-    image: "/Ruby.png",
+    image: "/Ruby.png", 
     desc: "A blood-red corundum gemstone embedding the fierce, passionate essence of Agni (The Ignition)."
   },
   {
     name: "Topaz",
     type: "Soul",
-    image: "/Topaz.png",
+    image: "/Topaz.png", 
     desc: "A golden-hued silicate mineral radiating a warm, guiding light to balance the core fire of the sculpture."
   }
 ];
@@ -96,7 +90,6 @@ export default function App() {
     setCopiedField(field);
     setTimeout(() => setCopiedField(null), 2000);
   };
-  
 
   return (
     <div className="min-h-screen bg-[#050505] text-gray-300 font-sans selection:bg-[#D4AF37] selection:text-black">
@@ -140,7 +133,7 @@ export default function App() {
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-[#D4AF37]/10 px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Award className="text-[#D4AF37]" size={24} />
+          <ShieldCheck className="text-[#D4AF37]" size={24} />
           <span className="font-semibold tracking-widest uppercase text-xs text-white">Provenance Passport</span>
         </div>
         <div className="flex items-center gap-2 text-[10px] sm:text-xs text-[#D4AF37] border border-[#D4AF37]/30 px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold">
@@ -392,6 +385,7 @@ function MaterialCard({ mat }: { mat: any }) {
       {/* Immersive Image Container */}
       <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-[#111]">
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10"></div>
+        {/* The Image Tag */}
         <img 
           src={mat.image} 
           alt={mat.name} 
