@@ -51,13 +51,15 @@ const VESSEL_MATERIALS = [
   {
     name: "Limestone",
     type: "Body",
-    image: "/limestone.jpeg",
+    // Fresh Unsplash link for a beautiful dark stone texture
+    image: "/Limestone_new.jpg",
     desc: "A sedimentary rock forming the structural foundation, representing ancient earth and grounding physical presence."
   },
   {
     name: "Calcite",
     type: "Body",
-    image: "/calcite.jpg",
+    // Fresh Unsplash link for a luminous white crystal
+    image: "/Calcite_new.jpg",
     desc: "A carbonate mineral providing luminous structural integrity, channeling energy through its crystalline lattice."
   }
 ];
@@ -66,19 +68,21 @@ const ESSENCE_MATERIALS = [
   {
     name: "Meteorite",
     type: "Soul",
-    image: "/meteorite.jpg",
+    // Fresh Unsplash link for a dark, cosmic asteroid texture
+    image: "/Meteorite_new.jpg",
     desc: "Extraterrestrial forged iron-nickel, carrying the cosmic signature and raw primordial fire of the universe."
   },
   {
     name: "Ruby",
     type: "Soul",
-    image: "/ruby.webp",
+    // Fresh Unsplash link for a raw red gemstone
+    image: "/Ruby_new.jpg",
     desc: "A blood-red corundum gemstone embedding the fierce, passionate essence of Agni (The Ignition)."
   },
   {
     name: "Topaz",
     type: "Soul",
-    image: "https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?q=80&w=1000&auto=format&fit=crop",
+    image: "/Topaz_new.jpg",
     desc: "A golden-hued silicate mineral radiating a warm, guiding light to balance the core fire of the sculpture."
   }
 ];
