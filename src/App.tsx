@@ -49,13 +49,13 @@ const VESSEL_MATERIALS = [
   {
     name: "Limestone",
     type: "Body",
-    image: "/Limestone.png", 
+    image: "/limestone.png", 
     desc: "A sedimentary rock forming the structural foundation, representing ancient earth and grounding physical presence."
   },
   {
     name: "Calcite",
     type: "Body",
-    image: "/Calcite.png", 
+    image: "/calcite.png", 
     desc: "A carbonate mineral providing luminous structural integrity, channeling energy through its crystalline lattice."
   }
 ];
@@ -64,19 +64,19 @@ const ESSENCE_MATERIALS = [
   {
     name: "Meteorite",
     type: "Soul",
-    image: "/Meteorite.png", 
+    image: "/meteorite.png", 
     desc: "Extraterrestrial forged iron-nickel, carrying the cosmic signature and raw primordial fire of the universe."
   },
   {
     name: "Ruby",
     type: "Soul",
-    image: "/Ruby.png", 
+    image: "/ruby.png", 
     desc: "A blood-red corundum gemstone embedding the fierce, passionate essence of Agni (The Ignition)."
   },
   {
     name: "Topaz",
     type: "Soul",
-    image: "/Topaz.png", 
+    image: "/topaz.png", 
     desc: "A golden-hued silicate mineral radiating a warm, guiding light to balance the core fire of the sculpture."
   }
 ];
