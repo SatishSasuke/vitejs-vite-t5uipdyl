@@ -31,11 +31,11 @@ interface DetailItemProps {
 // --- Mock Data & Materials ---
 const MOCK_DATA = {
   title: "Ethereal Convergence #04",
-  subtitle: "The Raw Fire | Agni | The Ignition",
+  subtitle: "ISHWAR ARCHIVES VOL 4 | LIVING GEODE",
   artist: "Elena Rostova",
   year: "2026",
   descriptionLink: "https://pemetaanbudaya.jkkn.gov.my/en/senibudaya/detail/741",
-  descriptionText: "Tarian Dabus | The Warrior’s Trance Specific Traditional Dance Motif",
+  descriptionText: "THIS WORK IS A TOPOGRAPHICAL RECORD OF SPIRITUAL ENDURANCE.UTILISING THE RAW LIMESTONE AND RED EARTH HARVESTED FROM THE LIVING LABORATORY @ THE BANJARAN’S STEAM CAVE, I HAVE LITHIFIED THE GEOTHERMAL HEAT INTO A PHYSICAL PLANE THROUGH THE FOSSILISATION OF ONE OF PERAK’S CULTURAL WARRIOR DANCE; DABUS.",
   imageUrl: "/sculpture.png", 
   artRegistryId: "IA-VOL4-FIRE-005",
   serialNumber: "SN-2026-04-1901",
@@ -47,18 +47,25 @@ const MOCK_DATA = {
   metadataType: "IPFS / Decentralized"
 };
 
+// --- UPDATED MATERIAL LISTS ---
 const VESSEL_MATERIALS = [
   {
     name: "Limestone",
     type: "Body",
-    image: "/Limestone.png", 
+    image: "/Limestone.jpg", 
     desc: "A sedimentary rock forming the structural foundation, representing ancient earth and grounding physical presence."
   },
   {
-    name: "Calcite",
+    name: "Quartz Crystals",
     type: "Body",
-    image: "/Calcite.png", 
+    image: "/ClearQuartz.jpg", 
     desc: "A carbonate mineral providing luminous structural integrity, channeling energy through its crystalline lattice."
+  },
+  {
+    name: "Red Earth Sand",
+    type: "Body",
+    image: "/redsand.jpeg", // Make sure your image name matches this exactly! (or change to .jpg)
+    desc: "Rich, iron-infused terracotta soil grounding the piece in the primordial earth, representing raw, organic physical connection."
   }
 ];
 
@@ -72,14 +79,8 @@ const ESSENCE_MATERIALS = [
   {
     name: "Ruby",
     type: "Soul",
-    image: "/Ruby.png", 
+    image: "/Ruby.jpg", 
     desc: "A blood-red corundum gemstone embedding the fierce, passionate essence of Agni (The Ignition)."
-  },
-  {
-    name: "Topaz",
-    type: "Soul",
-    image: "/Topaz.png", 
-    desc: "A golden-hued silicate mineral radiating a warm, guiding light to balance the core fire of the sculpture."
   }
 ];
 
@@ -168,7 +169,7 @@ export default function App() {
             {/* Hero Typography */}
             <div className="relative z-10 text-center flex flex-col items-center max-w-2xl">
               <h1 className="text-4xl sm:text-6xl font-light text-white tracking-widest uppercase mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                Ishwar Archives
+                The Raw Fire | Agni | <br />The Ignition
               </h1>
               <h2 className="text-[#D4AF37] text-sm sm:text-lg tracking-[0.2em] uppercase font-medium mb-6">
                 {MOCK_DATA.subtitle}
@@ -179,10 +180,10 @@ export default function App() {
                 href={MOCK_DATA.descriptionLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 text-gray-400 hover:text-white transition-colors text-sm sm:text-base font-light tracking-wide max-w-lg leading-relaxed px-4 underline-offset-4 hover:underline"
-              >
-                {MOCK_DATA.descriptionText}
-                <ExternalLink size={14} className="text-[#D4AF37] group-hover:scale-110 transition-transform" />
+                className="group flex flex-wrap items-center justify-center text-center gap-2 text-gray-400 hover:text-white transition-colors text-sm sm:text-base font-light tracking-wider max-w-2xl leading-loose px-4 underline-offset-8 hover:underline"
+                  >
+                <span>{MOCK_DATA.descriptionText}</span>
+                <ExternalLink size={14} className="text-[#D4AF37] group-hover:scale-110 transition-transform shrink-0 mt-0.5" />
               </a>
               
               {/* Premium Dual Buttons Rows with beautiful spacing */}
@@ -215,7 +216,7 @@ export default function App() {
               <div className="bento-card rounded-2xl p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-8">
                   <Fingerprint className="text-[#D4AF37]" size={20} />
-                  <h2 className="text-lg font-light text-white tracking-widest uppercase">Cryptographic Identity</h2>
+                  <h2 className="text-lg font-light text-white tracking-widest uppercase">Blockchain Passport Identity</h2>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -331,6 +332,218 @@ export default function App() {
 
             </div>
           </main>
+          {/* --- THE KINETIC FOSSIL SECTION --- */}
+          <section className="relative z-10 max-w-5xl mx-auto px-4 pb-32">
+            
+            {/* Title & Description */}
+            <div className="mb-12 text-center flex flex-col items-center">
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                The Kinetic Fossil
+              </h2>
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
+              
+              <p className="text-gray-400 max-w-3xl leading-loose font-light text-[10px] sm:text-xs tracking-[0.2em] uppercase text-center">
+                Dabus is a unique martial art form found primarily in the state of Perak, introduced over 300 years ago. It is not merely a performance but a spiritual discipline. Historically, it was used to mentally and spiritually prepare warriors for battle, instilling a state of fearlessness. The ritual involves the use of the Anak Dabus; a sharp iron spike with ringing bells attached to the handle.
+              </p>
+            </div>
+
+            {/* Cinematic Video Link Image */}
+            <a 
+              href="https://cdpapps.jkkn.gov.my/video/pemetaan-budaya/04V04_Tarian%20Dabus_F2_Subs.mp4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block relative w-full h-[300px] sm:h-[500px] overflow-hidden rounded-2xl border border-white/5 hover:border-[#D4AF37]/50 transition-all duration-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            >
+              {/* Darkening Overlay for mood */}
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-700 z-10"></div>
+              
+              {/* Interactive Play Button HUD */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="w-20 h-20 rounded-full bg-[#111]/80 backdrop-blur-md border border-[#D4AF37]/50 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 group-hover:bg-[#D4AF37] group-hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+                  <Play size={28} className="ml-1 fill-current" />
+                </div>
+              </div>
+
+              {/* The Background Image */}
+              {/* IMPORTANT: Ensure the filename matches what you uploaded to the public folder! */}
+              <img 
+                src="/dabus_thumbnail.png" 
+                alt="The Kinetic Fossil - Dabus Ritual" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-80 group-hover:opacity-100"
+              />
+            </a>
+            {/* Learn More Button - Deep Dive Link */}
+            <div className="mt-12 flex justify-center">
+              <a 
+                href="https://pemetaanbudaya.jkkn.gov.my/senibudaya/detail/741"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-none border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs flex items-center justify-center gap-2 group"
+              >
+                Learn More
+                <ExternalLink size={14} className="group-hover:scale-110 transition-transform" />
+              </a>
+            </div>
+          </section>
+          {/* --- MANIFESTING THE REALM OF FIRE SECTION --- */}
+          <section className="relative z-10 max-w-5xl mx-auto px-4 pb-32">
+            
+            {/* Title & Description */}
+            <div className="mb-12 text-center flex flex-col items-center">
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif', textShadow: '0 0 40px rgba(212,175,55,0.2)' }}>
+                Manifesting the Realm of Fire
+              </h2>
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
+              
+              <p className="text-gray-400 max-w-3xl leading-loose font-light text-[10px] sm:text-xs tracking-[0.2em] uppercase text-center">
+                A 4K cinematic bridge between heart and canvas. Step into the mind of the artist to experience the visceral manifestation of Agni; witnessing the alchemical fusion of mineral, art and soul.
+              </p>
+            </div>
+
+            {/* Cinematic Auto-Looping Video */}
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.8)] group">
+              
+              {/* The Video Element */}
+              {/* IMPORTANT: Make sure your video in the public folder is named 'agni-cinematic.mp4' */}
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-[300px] sm:h-[600px] object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000 saturate-150 contrast-125"
+              >
+                <source src="RealofFire.mp4" type="video/mp4" />
+                
+              </video>
+
+              {/* Seamless Dark Edge Blending */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(5,5,5,0.6)_100%)] pointer-events-none z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] opacity-50 pointer-events-none z-10"></div>
+            </div>
+
+          </section>
+          {/* --- LIGHT BODY MECHANISM SECTION --- */}
+          <section className="relative z-10 max-w-5xl mx-auto px-4 pb-32">
+            
+            {/* Title & Description */}
+            <div className="mb-12 text-center flex flex-col items-center">
+              <h3 className="text-[#D4AF37] text-xs sm:text-sm tracking-[0.3em] uppercase font-semibold mb-4">
+                Yogic & Varma Science
+              </h3>
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                Light Body Mechanism
+              </h2>
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
+              
+              <p className="text-gray-400 max-w-3xl leading-loose font-light text-[10px] sm:text-xs tracking-[0.2em] uppercase text-center">
+                <span className="text-white font-medium">AGNI TATTWA:</span> THE INTEGRATION OF THE METEORITE (CELESTIAL IRON) AND RUBY ACTIVATES THE SOLAR PLEXUS. BY MIRRORING THE KUTTU VARMAM STRIKES, THE ARTWORK CAUTERISES THE NERVOUS SYSTEM, TRANSFORMING TAMASIC INERTIA INTO TEJAS (ILLUMINATION).
+              </p>
+            </div>
+
+            {/* Mid Section Box: ATT Points */}
+            <div className="max-w-md mx-auto bento-card rounded-2xl p-8 relative overflow-hidden group border border-[#D4AF37]/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              {/* Subtle background glow */}
+              <div className="absolute inset-0 bg-[#D4AF37]/5 group-hover:bg-[#D4AF37]/10 transition-colors duration-500"></div>
+              
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <span className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mb-2 flex items-center gap-2">
+                  <Sparkles size={14} className="text-[#D4AF37]" />
+                  Energy Matrix
+                </span>
+                <h4 className="text-lg text-white uppercase tracking-widest font-light mb-6">
+                  ATT Points Collected
+                </h4>
+                
+                {/* Score Display */}
+                <div className="flex items-baseline gap-2 mb-5">
+                  <span className="text-6xl sm:text-7xl font-light text-[#D4AF37] font-mono tracking-tighter drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">80</span>
+                  <span className="text-xl text-gray-600 font-mono">/ 100</span>
+                </div>
+
+                {/* Progress Bar */}
+                <div className="w-full h-1.5 bg-black rounded-full overflow-hidden border border-white/5 relative mb-2">
+                  <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#D4AF37]/30 to-[#D4AF37] w-[80%] shadow-[0_0_15px_rgba(212,175,55,0.8)]"></div>
+                </div>
+                
+                {/* Status Tags */}
+                <div className="w-full flex justify-between text-[9px] text-gray-500 uppercase tracking-widest font-mono">
+                  <span>Tamasic</span>
+                  <span className="text-[#D4AF37] animate-pulse">Tejas Active</span>
+                </div>
+              </div>
+            </div>
+            
+          </section>
+          {/* --- THE TRINITY NARRATIVE SECTION --- */}
+          <section className="relative z-10 max-w-6xl mx-auto px-4 pb-32">
+            
+            {/* Title */}
+            <div className="mb-16 text-center flex flex-col items-center">
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                The Trinity Narrative
+              </h2>
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
+            </div>
+
+            {/* Image Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              
+              {/* Image 1: The Roads */}
+              <div className="group relative overflow-hidden rounded-2xl bento-card border border-[#D4AF37]/20 transition-all duration-700 hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div className="relative h-[450px] sm:h-[600px] w-full overflow-hidden bg-[#111]">
+                  <img 
+                    src="/Paint1.png" 
+                    alt="The Roads | Herman WSY" 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                  />
+                  {/* Cinematic gradient fade at the bottom for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
+                </div>
+                
+                {/* Floating Text Overlay */}
+                <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-[#D4AF37] text-xl sm:text-2xl tracking-[0.2em] uppercase font-light mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                    The Roads
+                  </h3>
+                  <div className="flex items-center gap-4 w-full justify-center">
+                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                    <span className="text-gray-400 text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium">
+                      Herman WSY
+                    </span>
+                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Image 2: The Roots */}
+              <div className="group relative overflow-hidden rounded-2xl bento-card border border-[#D4AF37]/20 transition-all duration-700 hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div className="relative h-[450px] sm:h-[600px] w-full overflow-hidden bg-[#111]">
+                  <img 
+                    src="/Paint2.png" 
+                    alt="The Roots | Mashitah N" 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                  />
+                  {/* Cinematic gradient fade at the bottom for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
+                </div>
+                
+                {/* Floating Text Overlay */}
+                <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-[#D4AF37] text-xl sm:text-2xl tracking-[0.2em] uppercase font-light mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                    The Roots
+                  </h3>
+                  <div className="flex items-center gap-4 w-full justify-center">
+                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                    <span className="text-gray-400 text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium">
+                      Mashitah N
+                    </span>
+                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
         </div>
       )}
 
@@ -352,7 +565,7 @@ export default function App() {
               </h1>
               <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
               <p className="text-gray-400 max-w-2xl leading-relaxed font-light text-center">
-                Every physical element of this artwork has been meticulously sourced. Explore the duality of the grounding vessel and its passionate essence.
+                OPERATING UNDER THE PRINCIPLE OF GEOLOGICAL AUTHENTICITY, EACH WORK OF ART DOESN’T MERELY REPRESENT THE ELEMENTS, IT IS PHYSICALLY INCORPORATED
               </p>
             </div>
 
@@ -363,26 +576,40 @@ export default function App() {
                   The Vessel <span className="text-gray-600 mx-2">|</span> <span className="text-gray-400">Body</span>
                 </h2>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                {VESSEL_MATERIALS.map((mat, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                  {VESSEL_MATERIALS.map((mat, index) => (
                   <MaterialCard key={index} mat={mat} />
-                ))}
+                  ))}
               </div>
             </div>
-
+            {/* Section 2: The Essence (Soul) */}
             <div>
               <div className="flex items-center gap-3 mb-8 border-b border-[#D4AF37]/20 pb-4">
                 <Diamond className="text-[#D4AF37]" size={24} />
                 <h2 className="text-2xl font-light text-white tracking-widest uppercase">
-                  The Essence <span className="text-[#D4AF37]/50 mx-2">|</span> <span className="text-[#D4AF37]">Soul</span>
+                  The Spark <span className="text-[#D4AF37]/50 mx-2">|</span> <span className="text-[#D4AF37]">Soul</span>
                 </h2>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 {ESSENCE_MATERIALS.map((mat, index) => (
                   <MaterialCard key={index} mat={mat} />
                 ))}
               </div>
             </div>
+
+            {/* Learn More Button - Gem Society Link (MOVED HERE) */}
+            <div className="mt-16 flex justify-center">
+              <a 
+                href="https://www.gemsociety.org/article/gem-pricing-guide-sample/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3.5 rounded-none border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs flex items-center justify-center gap-2 group"
+              >
+                Learn More
+                <ExternalLink size={14} className="group-hover:scale-110 transition-transform" />
+              </a>
+            </div>
+
           </div>
         </div>
       )}
@@ -408,7 +635,7 @@ export default function App() {
               </h1>
               <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
               <p className="text-gray-400 max-w-2xl leading-relaxed font-light text-center">
-              Verifiable geospatial coordinates logging the primary origin of the minerals embedded inside the core vessel of this sculpture.
+              VERIFIABLE GEOSPATIAL COORDINATED LOGGING THE PRIMARY ORIGIN OF THE MINERALS EMBEDDED WITHIN THIS PHYSICAL MASTERWORK
               </p>
               </div>
 
@@ -487,15 +714,15 @@ export default function App() {
                   <div className="space-y-5 text-sm">
                     <div>
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Geographic Region</span>
-                      <p className="text-gray-200">Kinta Valley Karst Topography</p>
+                      <p className="text-gray-200">KINTA VALLEY KARST</p>
                     </div>
                     <div>
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Environmental Site</span>
-                      <p className="text-gray-200">Geothermal aquifers adjoining Paleozoic Limestone massifs.</p>
+                      <p className="text-gray-200">ACTIVE GEOTHERMAL SPRINGS, TAMBUN</p>
                     </div>
                     <div>
                       <span className="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Geological Age</span>
-                      <p className="text-gray-200 font-mono text-xs">~250 - 400 Million Years (Devonian Era)</p>
+                      <p className="text-gray-200 font-mono text-xs">Formal Epoch :  Paleozoic Antiquity</p>
                     </div>
                   </div>
                 </div>
@@ -505,7 +732,7 @@ export default function App() {
                     <ShieldCheck size={12} className="text-[#D4AF37]" /> Sourcing Authenticity
                   </h4>
                   <p className="text-xs text-gray-400 leading-relaxed font-light">
-                    This material passport logs extraction coordinates cryptographically linked to the specific registry entry block to guarantee structural ethical tracing.
+                    A VERIFIED PROVENANCE LEDGER ENSURING ZERO-IMPACT ETHICAL SOURCING. EXTRACTION COORDINATES ARE PERMANENTLY LOGGED TO HONOUR THE ANCIENT GEOLOGICAL HERITAGE AND ECOLOGICAL SANCTITY OF THE BANJARAN ENVIRONMENT.
                   </p>
                 </div>
               </div>
@@ -517,14 +744,41 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-8 text-center bg-[#000000]">
-        <div className="flex items-center justify-center gap-2 text-zinc-500 mb-3">
-          <ShieldCheck size={14} />
-          <span className="text-xs tracking-widest uppercase">Secured by The Fine Art Ledger Protocol</span>
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-16 text-center bg-[#000000] relative z-10">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col items-center">
+          
+          {/* Security Icon */}
+          <div className="flex items-center justify-center text-[#D4AF37] mb-6">
+            <ShieldCheck size={20} />
+          </div>
+
+          {/* Legacy & Authentication Text */}
+          <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-[0.2em] leading-loose mb-12 text-center max-w-2xl">
+            © 2026 ISHWAR ARCHIVES LEGACY. PRODUCED IN PARTNERSHIP WITH SUNWAY SYNERGY.<br className="hidden md:block" /> AUTHENTICATED ON POLYGON BLOCKCHAIN.
+          </p>
+
+          {/* VIP Sponsor Logos - Expanded Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-12 w-full max-w-5xl mx-auto mt-12 items-center">
+            
+            {/* Logo 1: The Banjaran */}
+            <SponsorLogo src="/the-banjaran-logo.jpg" alt="The Banjaran" />
+            
+            {/* Logo 2: Sunway */}
+            <SponsorLogo src="/Sunway_logo.png" alt="Sunway Synergy" />
+            
+            {/* Logo 3: FAI */}
+            <SponsorLogo src="/FAI_LOGO-removebg-preview.png" alt="FAI" />
+            
+            {/* Logo 4: Wellness */}
+            <SponsorLogo src="/wellness_logo-removebg-preview.png" alt="Wellness" />
+            
+            {/* Logo 5: Ishwar */}
+            <SponsorLogo src="/IshwarLogo.png" alt="Ishwar" />
+
+          </div>
+
         </div>
-        <p className="text-[10px] text-zinc-600 uppercase tracking-widest">
-          © {new Date().getFullYear()} Ishwar Archives. All rights reserved.
-        </p>
       </footer>
     </div>
   );
@@ -576,6 +830,19 @@ function DetailItem({ label, value, icon, onCopy, isCopied, truncate = true }: D
           </button>
         )}
       </div>
+    </div>
+  );
+}
+function SponsorLogo({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="group relative p-4 sm:p-6 rounded-2xl border border-transparent hover:border-[#D4AF37]/30 hover:bg-[#D4AF37]/5 transition-all duration-500 flex items-center justify-center cursor-pointer">
+      <div className="absolute inset-0 bg-[#D4AF37] opacity-0 group-hover:opacity-5 blur-xl transition-opacity duration-500 rounded-full"></div>
+      <img 
+        src={src} 
+        alt={alt} 
+        /* UPDATED HEIGHTS: Changed h-12 -> h-16 and h-20 -> h-28 */
+        className="relative z-10 h-40 sm:h-50 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 drop-shadow-[0_0_10px_rgba(255,255,255,0.05)] group-hover:drop-shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
+      />
     </div>
   );
 }
