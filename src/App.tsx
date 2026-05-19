@@ -289,16 +289,26 @@ export default function App() {
             <div className="md:col-span-4 flex flex-col gap-4">
               <div className="bento-card rounded-2xl p-8 flex flex-col items-center text-center justify-center flex-grow">
                 <QrCode className="text-[#D4AF37] mb-6 opacity-80" size={32} />
+                
+                {/* Your existing QR code image */}
                 <div className="bg-white p-3 rounded-xl mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-                  {/* Standardized QR Image asset from previous step */}
-                  <img src="/certificate.png" alt="QR Code" className="w-[120px] h-[120px] object-contain" />
+                  <img src="/qrcode.png" alt="QR Code" className="w-[120px] h-[120px] object-contain" />
                 </div>
-                <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-2">
+                
+                <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">
                   Physical Link
                 </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  This QR code permanently anchors the physical sculpture to its digital ledger.
-                </p>
+
+                {/* NEW: Explicit View COA Button */}
+                <a 
+                  href="/certificate.jpg" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full px-6 py-3 rounded-none border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-[10px] flex items-center justify-center gap-2 group"
+                >
+                  View COA
+                  <ExternalLink size={12} className="group-hover:scale-110 transition-transform" />
+                </a>
               </div>
 
               {/* Navigation Split Row to visit Page 2 or Page 3 */}
