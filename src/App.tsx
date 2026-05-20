@@ -354,7 +354,7 @@ export default function App() {
             
             {/* Title & Description */}
             <div className="mb-12 text-center flex flex-col items-center">
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif', color: '#ffffff' }}>
                 The Kinetic Fossil
               </h2>
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
@@ -407,8 +407,8 @@ export default function App() {
             
             {/* Title & Description */}
             <div className="mb-12 text-center flex flex-col items-center">
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif', textShadow: '0 0 40px rgba(212,175,55,0.2)' }}>
-                Manifesting the Realm of Fire
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif', textShadow: '0 0 40px rgba(212,175,55,0.2)', color: '#ffffff' }}>
+              Manifesting the Realm of Fire
               </h2>
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
               
@@ -496,8 +496,8 @@ export default function App() {
             
             {/* Title */}
             <div className="mb-16 text-center flex flex-col items-center">
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                The Trinity Narrative
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif', color: '#ffffff' }}>
+              The Trinity Narrative
               </h2>
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
             </div>
