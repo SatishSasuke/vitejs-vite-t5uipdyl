@@ -168,8 +168,15 @@ export default function App() {
 
             {/* Hero Typography */}
             <div className="relative z-10 text-center flex flex-col items-center max-w-2xl">
-              <h1 className="text-4xl sm:text-6xl font-light text-white tracking-widest uppercase mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                The Raw Fire | Agni | <br />The Ignition
+              <h1 
+                className="text-5xl sm:text-7xl font-light text-white tracking-[0.2em] uppercase" 
+                style={{ 
+                  fontFamily: '"Cinzel", "Times New Roman", serif', // Added fallback fonts
+                  color: '#ffffff',                                // Force white color
+                  opacity: 1                                       // Ensure it is not hidden
+                }}
+              >
+                The Raw Fire | Agni | The Ignition
               </h1>
               <h2 className="text-[#D4AF37] text-sm sm:text-lg tracking-[0.2em] uppercase font-medium mb-6">
                 {MOCK_DATA.subtitle}
