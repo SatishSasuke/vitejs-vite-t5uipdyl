@@ -176,7 +176,7 @@ export default function App() {
                   opacity: 1                                       // Ensure it is not hidden
                 }}
               >
-                The Raw Fire | Agni | The Ignition
+                The Raw Fire <br /> Agni |  The Ignition
               </h1>
               <h2 className="text-[#D4AF37] text-sm sm:text-lg tracking-[0.2em] uppercase font-medium mb-6">
                 {MOCK_DATA.subtitle}
