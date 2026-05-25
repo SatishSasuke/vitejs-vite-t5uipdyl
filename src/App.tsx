@@ -2,8 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { 
   ShieldCheck, 
   Copy, 
-  ExternalLink, 
-  QrCode, 
+  ExternalLink,  
   Fingerprint, 
   Box, 
   Link as LinkIcon, 
@@ -15,7 +14,10 @@ import {
   Play,
   MapPin,
   Globe,
-  Compass
+  Compass,
+  Palette,
+  Gem,
+  X,
 } from 'lucide-react';
 
 // --- Types & Interfaces ---
@@ -35,7 +37,7 @@ const MOCK_DATA = {
   artist: "Elena Rostova",
   year: "2026",
   descriptionLink: "https://pemetaanbudaya.jkkn.gov.my/en/senibudaya/detail/741",
-  descriptionText: "THIS WORK IS A TOPOGRAPHICAL RECORD OF SPIRITUAL ENDURANCE.UTILISING THE RAW LIMESTONE AND RED EARTH HARVESTED FROM THE LIVING LABORATORY @ THE BANJARAN’S STEAM CAVE, I HAVE LITHIFIED THE GEOTHERMAL HEAT INTO A PHYSICAL PLANE THROUGH THE FOSSILISATION OF ONE OF PERAK’S CULTURAL WARRIOR DANCE; DABUS.",
+  descriptionText: "This work is a topographical record of spiritual endurance.Utilising the raw limestone and red earth harvested from the living laboratory @ the banjaran’s steam cave, I have lithified the geothermal heat into a physical plane through the fossilisation of one of perak’s cultural warrior dance; dabus.",
   imageUrl: "/sculpture.png", 
   artRegistryId: "IA-VOL4-FIRE-005",
   serialNumber: "SN-2026-04-1901",
@@ -47,48 +49,144 @@ const MOCK_DATA = {
   metadataType: "IPFS / Decentralized"
 };
 
-// --- UPDATED MATERIAL LISTS ---
+// --- UPDATED MATERIAL LISTS (WITH DEEP CODEX DATA) ---
 const VESSEL_MATERIALS = [
   {
-    name: "Limestone",
+    name: "Raw Limestone",
+    subtitle: "The Foundation of The Vessel",
     type: "Body",
     image: "/Limestone.jpg", 
-    desc: "A sedimentary rock forming the structural foundation, representing ancient earth and grounding physical presence."
+    desc: "A sedimentary rock forming the structural foundation, representing ancient earth and grounding physical presence.",
+    materialData: [
+      { label: "Composition", value: "Calcium Carbonate (CaCO₃) with trace geothermal mineral deposits." },
+      { label: "Origin", value: "The Paleozoic Karst Systems of the Kinta Valley, Malaysia." },
+      { label: "Geological Age", value: "Approx. 400 Million Years (Devonian Period)." },
+      { label: "Hardness", value: "3.0 – 4.0 (Mohs Scale)." },
+      { label: "Geological Profile", value: "A massive sedimentary cornerstone forged over eons of extreme subterranean pressure and ancient marine calcification. Within The Banjaran’s ecosystem, it acts as a natural thermodynamic regulator, trapping and sustaining the earth's geothermal heat." }
+    ],
+    resonanceData: [
+      { label: "Frequency", value: "Ultra-Low (Deep Earth Resonance)." },
+      { label: "Chakra Alignment", value: "Root (Muladhara) – The anchor of the physical plane." },
+      { label: "Energetic Profile", value: "Governs extreme grounding and spatial endurance. Limestone absorbs and neutralizes chaotic frequencies, transmuting raw, volatile energy into stabilized matter." },
+      { label: "Alchemical Purpose", value: "To serve as the absolute, unyielding foundation of The Vessel. It provides the silent architectural integrity required to hold the cosmic heat of The Spark without fracturing." }
+    ]
   },
   {
-    name: "Quartz Crystals",
+    name: "Quartz",
+    subtitle: "The Amplifier of The Vessel",
     type: "Body",
     image: "/ClearQuartz.jpg", 
-    desc: "A carbonate mineral providing luminous structural integrity, channeling energy through its crystalline lattice."
+    desc: "A carbonate mineral providing luminous structural integrity, channeling energy through its crystalline lattice.",
+    materialData: [
+      { label: "Composition", value: "Silicon Dioxide (SiO2)." },
+      { label: "Origin", value: "Subterranean crystalline veins native to the Kinta Valley geological matrix." },
+      { label: "Geological Age", value: "Primordial crystallization (Hydrothermal vein formation)." },
+      { label: "Hardness", value: "7.0 (Mohs Scale)." },
+      { label: "Geological Profile", value: "A highly structured, continuous framework of silicon-oxygen tetrahedra. Quartz possesses natural piezoelectric properties, meaning it physically generates a measurable electrical charge when subjected to mechanical or subterranean pressure." }
+    ],
+    resonanceData: [
+      { label: "Frequency", value: "Ultra-High (Programmable Amplification)." },
+      { label: "Chakra Alignment", value: "Crown (Sahasrara) and the Universal Matrix." },
+      { label: "Energetic Profile", value: "Universally recognised as a 'Master Healer' and energetic hard drive. Quartz is a bio-resonant crystalline structure capable of absorbing, storing, regulating, and amplifying environmental frequencies with absolute clarity." },
+      { label: "Alchemical Purpose", value: "To serve as the conductive nervous system within The Vessel. While the Limestone provides the heavy, unyielding anchor, the Quartz ensures the structure does not become inert. It catches the cosmic heat of The Spark and amplifies it, allowing the energy of creation to pulse continuously throughout the physical body." }
+    ]
   },
   {
     name: "Red Earth Sand",
+    subtitle: "The Binder of The Vessel",
     type: "Body",
-    image: "/redsand.jpeg", // Make sure your image name matches this exactly! (or change to .jpg)
-    desc: "Rich, iron-infused terracotta soil grounding the piece in the primordial earth, representing raw, organic physical connection."
+    image: "/redsand.jpeg", 
+    desc: "Rich, iron-infused terracotta soil grounding the piece in the primordial earth, representing raw, organic physical connection.",
+    materialData: [
+      { label: "Composition", value: "Ferric Oxide-rich Laterite (Fe₂O₃) and aluminosilicate clay minerals." },
+      { label: "Origin", value: "The geothermal and tropical weathering layers of the Kinta Valley basin." },
+      { label: "Geological Age", value: "Pleistocene to Holocene (Dynamic and continuously evolving)." },
+      { label: "Hardness", value: "Variable (Malleable earth matrix)." },
+      { label: "Geological Profile", value: "A highly oxidised, mineral-dense earth created by millennia of extreme tropical weathering and geothermal soil conditioning. Its deep crimson colour is a direct result of rich iron concentrations, making it a naturally porous, structurally binding terrestrial clay." }
+    ],
+    resonanceData: [
+      { label: "Frequency", value: "Mid-Low (Telluric / Life-Force Resonance)." },
+      { label: "Chakra Alignment", value: "Sacral (Svadhisthana) and Root (Muladhara) – The centers of creation and vitality." },
+      { label: "Energetic Profile", value: "The physical 'blood' of the earth. It represents organic growth, primal vitality, and human ancestry. It carries a deeply somatic energy, vibrating with the pulse of terrestrial life rather than the cold silence of deep space or deep stone." },
+      { label: "Alchemical Purpose", value: "To serve as the organic binding agent within The Vessel. If Limestone is the bone and Quartz is the nervous system, the Red Earth is the flesh. It bridges the gap between the ancient, sterile minerals and the living, breathing human element, ensuring the artwork retains a grounded, mortal warmth." }
+    ]
   }
 ];
 
 const ESSENCE_MATERIALS = [
   {
     name: "Meteorite",
+    subtitle: "The Catalyst of The Spark",
     type: "Soul",
     image: "/Meteorite.png", 
-    desc: "Extraterrestrial forged iron-nickel, carrying the cosmic signature and raw primordial fire of the universe."
+    desc: "Extraterrestrial forged iron-nickel, carrying the cosmic signature and raw primordial fire of the universe.",
+    materialData: [
+      { label: "Composition", value: "Iron-Nickel (Fe-Ni) alloy, often characterised by naturally occurring Widmanstätten crystalline patterns." },
+      { label: "Origin", value: "Extraterrestrial descent (Primordial asteroid belt remnants)." },
+      { label: "Geological Age", value: "Approx. 4.5 Billion Years (Pre-dating the formation of Earth)." },
+      { label: "Hardness", value: "4.0 – 5.0 (Mohs Scale)." },
+      { label: "Geological Profile", value: "A literal fragment of the early solar system that survived the violent thermal shock of atmospheric entry. Forged in the vacuum of deep space through millions of years of microscopic cooling, it is dense, highly magnetic matter carrying an extreme electromagnetic signature from its cosmic impact." }
+    ],
+    resonanceData: [
+      { label: "Frequency", value: "High-Velocity Cosmic." },
+      { label: "Chakra Alignment", value: "Third Eye (Ajna) and Crown (Sahasrara) – The channels of universal consciousness." },
+      { label: "Energetic Profile", value: "A conduit of extreme acceleration and sudden awakening. Unlike earth-bound stones that ground and stabilize, Meteorite shatters stagnation. It carries the chaotic, untamed velocity of a falling star, pushing boundaries and expanding spiritual endurance." },
+      { label: "Alchemical Purpose", value: "To act as the cosmic strike against the earthly Vessel. In the alchemy of creation, Meteorite provides the celestial friction necessary to ignite the Dabus spirit. It is the alien catalyst that shocks the dormant limestone into the fire of manifestation." }
+    ]
   },
   {
     name: "Ruby",
+    subtitle: "The Core of The Spark",
     type: "Soul",
     image: "/Ruby.jpg", 
-    desc: "A blood-red corundum gemstone embedding the fierce, passionate essence of Agni (The Ignition)."
+    desc: "A blood-red corundum gemstone embedding the fierce, passionate essence of Agni (The Ignition).",
+    materialData: [
+      { label: "Composition", value: "Aluminum Oxide with Chromium trace elements (Al₂O₃:Cr)." },
+      { label: "Origin", value: "Extreme-pressure metamorphic rock formations." },
+      { label: "Geological Age", value: "Deep crustal formation requiring specific, high temperature tectonic events." },
+      { label: "Hardness", value: "9.0 (Mohs Scale) – The hardest natural mineral after diamond." },
+      { label: "Geological Profile", value: "A premium variety of the corundum family. Its brilliant crimson colour and unique ability to naturally fluoresce under UV light are entirely dictated by the presence of chromium. It is a gemstone forged purely through intense subterranean heat and massive geological friction." }
+    ],
+    resonanceData: [
+      { label: "Frequency", value: "High-Intensity Kinetic." },
+      { label: "Chakra Alignment", value: "Root (Muladhara) and Heart (Anahata) – The bridge between survival and passion." },
+      { label: "Energetic Profile", value: "Historically revered as the stone of kings and warriors. It radiates a fiercely active, unquenchable life force. Ruby does not calm; it invigorates, acting as an energetic battery for sustained passion, courage, and kinetic movement." },
+      { label: "Alchemical Purpose", value: "To serve as the eternal, burning core of The Spark. If the Meteorite is the initial cosmic strike, the Ruby is the resulting flame. It perfectly embodies the raw, fearless energy of the Dabus spirit, ensuring that once the fire of creation is lit within The Vessel, it never burns out." }
+    ]
   }
 ];
+
+// --- CLICKABLE MATERIAL CARD COMPONENT ---
+const MaterialCard = ({ mat, onClick }: { mat: any, onClick: () => void }) => (
+  <div 
+    onClick={onClick} 
+    className="group relative rounded-2xl overflow-hidden border border-white/10 bg-black/40 hover:border-[#D4AF37]/50 transition-all duration-500 cursor-pointer hover:-translate-y-1"
+  >
+    <div className="aspect-[4/3] overflow-hidden">
+      <img 
+        src={mat.image} 
+        alt={mat.name} 
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+      />
+    </div>
+    <div className="p-6">
+      <div className="flex justify-between items-start mb-2">
+        <h3 className="text-lg font-light text-white tracking-widest uppercase">{mat.name}</h3>
+      </div>
+      <p className="text-xs text-gray-400 leading-relaxed font-light">{mat.desc}</p>
+    </div>
+  </div>
+);
 
 export default function App() {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   // Three distinct page views: Main, Material Provenance (Page 2), and Regional Mapping (Page 3)
   const [currentView, setCurrentView] = useState<'main' | 'provenance' | 'geography'>('main');
+  
+  // 👇 MOVED THIS HERE: Tracks which mineral is currently open in the Deep Dive Modal
+  const [selectedMineral, setSelectedMineral] = useState<any>(null);
 
+  // 👇 handleCopy is now clean and separate!
   const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopiedField(field);
@@ -134,18 +232,48 @@ export default function App() {
         }
       `}} />
 
-      {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-[#D4AF37]/10 px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="text-[#D4AF37]" size={24} />
-          <span className="font-semibold tracking-widest uppercase text-xs text-white">Provenance Passport</span>
-        </div>
-        <div className="flex items-center gap-2 text-[10px] sm:text-xs text-[#D4AF37] border border-[#D4AF37]/30 px-3 py-1.5 rounded-full uppercase tracking-wider font-semibold">
-          <span className="relative flex h-1.5 w-1.5 mr-1">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#D4AF37]"></span>
+     {/* 1. UPDATED NAVBAR - PREMIUM GLOW & LOGOS */}
+      <nav className="fixed top-0 w-full z-50 bg-[#050505] border-b border-[#D4AF37]/10 px-6 h-20 flex justify-between items-center shadow-lg">
+        
+        {/* Left Side: Widely Spaced Text with Premium Glow */}
+        <div className="flex items-center relative">
+          {/* Ambient Background Flare (Creates the expensive atmospheric glow) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[200%] bg-[#D4AF37]/20 blur-xl rounded-full pointer-events-none"></div>
+          
+          <span 
+            className="relative z-10 font-light tracking-[0.4em] uppercase text-[9px] sm:text-[11px] text-white leading-none"
+            style={{ 
+              textShadow: '0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.3)' 
+            }}
+          >
+            The Living Laboratory
           </span>
-          Blockchain Verified
+        </div>
+
+        {/* Right Side: 3 Mini Logos (Maximized & Brightened) */}
+        <div className="flex items-center justify-end gap-6 sm:gap-10">
+          
+          {/* Mini Logo 1 */}
+          <img 
+            src="/Sunway.png" 
+            alt="Sunway Synergy" 
+            className="h-8 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+          />
+          
+          {/* Mini Logo 2 */}
+          <img 
+            src="/MBOR.png" 
+            alt="Malaysia Book of Records" 
+            className="h-8 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+          />
+          
+          {/* Mini Logo 3 */}
+          <img 
+            src="/MPAS.png" 
+            alt="Malaysian Association" 
+            className="h-8 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+          />
+          
         </div>
       </nav>
 
@@ -183,24 +311,24 @@ export default function App() {
               </h2>
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-6"></div>
               
-              <a 
-                href={MOCK_DATA.descriptionLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group flex flex-wrap items-center justify-center text-center gap-2 text-gray-400 hover:text-white transition-colors text-sm sm:text-base font-light tracking-wider max-w-2xl leading-loose px-4 underline-offset-8 hover:underline"
-                  >
-                <span>{MOCK_DATA.descriptionText}</span>
-                <ExternalLink size={14} className="text-[#D4AF37] group-hover:scale-110 transition-transform shrink-0 mt-0.5" />
-              </a>
+              <p className="text-gray-400 text-sm sm:text-base font-light tracking-wider max-w-2xl mx-auto px-4 text-center leading-[1.8]">
+                {MOCK_DATA.descriptionText}
+              </p>
               
               {/* Premium Dual Buttons Rows with beautiful spacing */}
-              <div className="mt-10 mb-16 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button 
-                  onClick={() => setCurrentView('provenance')}
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-none border border-[#D4AF37]/50 text-black bg-[#D4AF37] hover:bg-white hover:border-white transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs text-center"
+              {/* Hero Action Buttons */}
+              <div className="pt-4 flex flex-wrap justify-center gap-4">
+                {/* View COA Button */}
+                <a 
+                  href="/certificate.jpg" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs group"
                 >
-                  Learn More
-                </button>
+                  View COA
+                  <ExternalLink size={14} className="group-hover:scale-110 transition-transform" />
+
+                </a>
 
                 <a 
                   href="https://www.youtube.com/watch?v=kfD9L_aNf6w" 
@@ -216,10 +344,82 @@ export default function App() {
           </section>
 
           {/* Bento Box Dashboard UI */}
-          <main className="relative z-10 max-w-6xl mx-auto px-4 pb-24 grid grid-cols-1 md:grid-cols-12 gap-4">
-            
-            {/* Column 1: Core Details */}
-            <div className="md:col-span-8 flex flex-col gap-4">
+          <main className="relative z-10 max-w-4xl mx-auto px-4 pb-24 w-full">
+            {/* Row 0: Artwork Specifications - HIGHLY ORGANIZED GRID */}
+            <div className="bento-card rounded-2xl p-6 sm:p-8 w-full">
+              <div className="flex items-center gap-3 mb-8">
+                <Palette className="text-[#D4AF37]" size={20} />
+                <h2 className="text-lg font-light text-white tracking-widest uppercase">Artwork Specifications</h2>
+              </div>
+              
+              {/* Inner Grid with Mini-Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border-b border-white/5 pb-8 mb-6">
+                
+                {/* Individual Spec Cards */}
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Artist</span>
+                  <span className="text-sm text-gray-200 font-medium">Raajashri Vegnishwar Nair</span>
+                </div>
+                
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Year</span>
+                  <span className="text-sm text-gray-200 font-mono">2026</span>
+                </div>
+                
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Series</span>
+                  <span className="text-sm text-gray-200">VoL IV | The Living Geode</span>
+                </div>
+                
+                {/* Spans 2 columns to give long text room */}
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl sm:col-span-2">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Type</span>
+                  <span className="text-sm text-gray-200">Geological Surrealism Fine Art Sculpture</span>
+                </div>
+                
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Size</span>
+                  <span className="text-sm text-gray-200">1.3 x 1.9 ft</span>
+                </div>
+                
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Weight</span>
+                  <span className="text-sm text-gray-200">26kg</span>
+                </div>
+                
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Edition</span>
+                  <span className="text-sm text-gray-200">Master Piece 1/1</span>
+                </div>
+                
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Digital Creation</span>
+                  <span className="text-sm text-gray-200">No</span>
+                </div>
+                
+                {/* Spans all 3 columns across the bottom */}
+                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl sm:col-span-2 md:col-span-3">
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Signature</span>
+                  <span className="text-sm text-gray-200">Signed on the Upper Right Hand Corner</span>
+                </div>
+                
+              </div>
+
+              {/* Status & Purchase VIP Footer */}
+              <div className="bg-[#D4AF37]/5 p-5 rounded-xl border border-[#D4AF37]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Purchased</span>
+                  <span className="text-sm text-gray-200">May 18, 2026 @ Living Laboratory</span>
+                </div>
+                <div>
+                  <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-1 sm:text-right">Status</span>
+                  {/* Upgraded the SOLD badge to solid gold/black for premium contrast */}
+                  <span className="inline-block text-xs font-bold tracking-[0.2em] text-black bg-[#D4AF37] px-4 py-1.5 rounded-sm">SOLD</span>
+                </div>
+              </div>
+            </div>
+            {/* Expanded Core Details Container */}
+            <div className="flex flex-col gap-4 w-full">
               <div className="bento-card rounded-2xl p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-8">
                   <Fingerprint className="text-[#D4AF37]" size={20} />
@@ -294,59 +494,38 @@ export default function App() {
 
             {/* Column 2: Media & Actions */}
             <div className="md:col-span-4 flex flex-col gap-4">
-              <div className="bento-card rounded-2xl p-8 flex flex-col items-center text-center justify-center flex-grow">
-                <QrCode className="text-[#D4AF37] mb-6 opacity-80" size={32} />
-                
-                {/* Your existing QR code image */}
-                <div className="bg-white p-3 rounded-xl mb-6 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-                  <img src="/qrcode.png" alt="QR Code" className="w-[120px] h-[120px] object-contain" />
+             
+
+              {/* Row 3: Navigation Cards (Prominent Icons) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+              
+              {/* Lithic Codex Button */}
+              <div onClick={() => setCurrentView('provenance')} className="bento-card rounded-2xl p-6 relative overflow-hidden group cursor-pointer flex flex-col justify-between h-[130px]">
+                {/* Increased wrapper from w-10/h-10 to w-14/h-14 */}
+                <div className="w-14 h-14 rounded-full bg-[#1a1a1a] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform mb-2">
+                  {/* Increased icon size from 16 to 28 */}
+                  <Gem size={28} />
                 </div>
-                
-                <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-4">
-                  Physical Link
-                </h3>
-
-                {/* NEW: Explicit View COA Button */}
-                <a 
-                  href="/certificate.jpg" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full px-6 py-3 rounded-none border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-[10px] flex items-center justify-center gap-2 group"
-                >
-                  View COA
-                  <ExternalLink size={12} className="group-hover:scale-110 transition-transform" />
-                </a>
-              </div>
-
-              {/* Navigation Split Row to visit Page 2 or Page 3 */}
-              <div className="grid grid-cols-2 gap-3">
-                <div 
-                  onClick={() => setCurrentView('provenance')}
-                  className="bento-card rounded-2xl p-4 relative overflow-hidden group cursor-pointer flex flex-col justify-between h-[110px]"
-                >
-                  <div className="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] group-hover:scale-110 transition-transform mb-2">
-                    <Sparkles size={14} />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-medium text-white mb-0.5">Matter Provenance</h3>
-                    <p className="text-[10px] text-gray-500">Physical origins</p>
-                  </div>
-                </div>
-
-                <div 
-                  onClick={() => setCurrentView('geography')}
-                  className="bento-card rounded-2xl p-4 relative overflow-hidden group cursor-pointer flex flex-col justify-between h-[110px] border-[#D4AF37]/20"
-                >
-                  <div className="w-8 h-8 rounded-full bg-[#1a1a1a] border border-[#D4AF37]/50 flex items-center justify-center text-[#D4AF37] animate-pulse mb-2">
-                    <MapPin size={14} />
-                  </div>
-                  <div>
-                    <h3 className="text-xs font-medium text-white mb-0.5">Geographic Map</h3>
-                    <p className="text-[10px] text-[#D4AF37]">Ipoh, Perak</p>
-                  </div>
+                <div>
+                  <h3 className="text-sm font-medium text-white mb-0.5">Lithic Codex</h3>
+                  <p className="text-xs text-gray-500">Material & Resonance Data</p>
                 </div>
               </div>
 
+              {/* Geographic Map Button */}
+              <div onClick={() => setCurrentView('geography')} className="bento-card rounded-2xl p-6 relative overflow-hidden group cursor-pointer flex flex-col justify-between h-[130px] border-[#D4AF37]/20">
+                {/* Increased wrapper from w-10/h-10 to w-14/h-14 */}
+                <div className="w-14 h-14 rounded-full bg-[#1a1a1a] border border-[#D4AF37]/50 flex items-center justify-center text-[#D4AF37] animate-pulse mb-2">
+                  {/* Increased icon size from 16 to 28 */}
+                  <MapPin size={28} />
+                </div>
+                <div>
+                  <h3 className="text-sm font-medium text-white mb-0.5">Geographic Map</h3>
+                  <p className="text-xs text-[#D4AF37]">Ipoh, Perak</p>
+                </div>
+              </div>
+
+            </div>
             </div>
           </main>
           {/* --- THE KINETIC FOSSIL SECTION --- */}
@@ -578,7 +757,7 @@ export default function App() {
 
             <div className="mb-16 text-center flex flex-col items-center">
               <h1 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                Provenance of Matter
+                Lithic Codex
               </h1>
               <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
               <p className="text-gray-400 max-w-2xl leading-relaxed font-light text-center">
@@ -586,32 +765,53 @@ export default function App() {
               </p>
             </div>
 
-            <div className="mb-20">
-              <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-4">
+            {/* --- THE VESSEL | BODY SECTION --- */}
+            <div className="mb-24">
+              
+              {/* 1. Subtitle Header */}
+              <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
                 <Box className="text-gray-500" size={24} />
                 <h2 className="text-2xl font-light text-white tracking-widest uppercase">
                   The Vessel <span className="text-gray-600 mx-2">|</span> <span className="text-gray-400">Body</span>
                 </h2>
               </div>
+              
+              {/* 2. Philosophical Description */}
+              <p className="text-gray-400 text-sm font-light tracking-wider max-w-4xl mb-14 leading-[1.8]">
+                The unbreakable foundation of the physical plane. By synthesising deep-time limestone, resonant quartz, and organic red earth, the Vessel acts as the grounding matrix—capable of holding the untamed energy of creation without shattering.
+              </p>
+
+             {/* 3. The Vessel Pictures / Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                   {VESSEL_MATERIALS.map((mat, index) => (
-                  <MaterialCard key={index} mat={mat} />
+                    <MaterialCard key={index} mat={mat} onClick={() => setSelectedMineral(mat)} />
                   ))}
               </div>
+              
             </div>
-            {/* Section 2: The Essence (Soul) */}
-            <div>
-              <div className="flex items-center gap-3 mb-8 border-b border-[#D4AF37]/20 pb-4">
+            {/* --- THE SPARK | SOUL SECTION --- */}
+            <div className="mb-24">
+              
+              {/* 1. Subtitle Header */}
+              <div className="flex items-center gap-3 mb-6 border-b border-[#D4AF37]/20 pb-4">
                 <Diamond className="text-[#D4AF37]" size={24} />
                 <h2 className="text-2xl font-light text-white tracking-widest uppercase">
                   The Spark <span className="text-[#D4AF37]/50 mx-2">|</span> <span className="text-[#D4AF37]">Soul</span>
                 </h2>
               </div>
+              
+              {/* 2. Philosophical Description */}
+              <p className="text-gray-400 text-sm font-light tracking-wider max-w-4xl mb-14 leading-[1.8]">
+                The catalyst of manifestation. Fusing the cosmic signature of iron-nickel meteorite with the passionate frequency of ruby, the Spark is the celestial, untamed heat that breathes kinetic life into the silent earth.
+              </p>
+
+             {/* 3. The Spark Pictures / Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 {ESSENCE_MATERIALS.map((mat, index) => (
-                  <MaterialCard key={index} mat={mat} />
+                  <MaterialCard key={index} mat={mat} onClick={() => setSelectedMineral(mat)} />
                 ))}
               </div>
+              
             </div>
 
             {/* Learn More Button - Gem Society Link (MOVED HERE) */}
@@ -797,34 +997,64 @@ export default function App() {
 
         </div>
       </footer>
+      {selectedMineral && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-300">
+          
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer" onClick={() => setSelectedMineral(null)}></div>
+          
+          <div className="relative w-full max-w-6xl bg-[#050505] border border-[#D4AF37]/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.15)] flex flex-col md:flex-row max-h-[90vh] z-10 animate-in zoom-in-95 duration-500">
+            
+            <button className="absolute top-4 right-4 z-20 p-2 bg-black/60 hover:bg-[#D4AF37] text-white hover:text-black rounded-full transition-colors border border-white/10" onClick={() => setSelectedMineral(null)}>
+              <X size={20} />
+            </button>
+
+            <div className="w-full md:w-4/12 h-[300px] md:h-auto relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 md:bg-gradient-to-r"></div>
+              <img src={selectedMineral.image} alt={selectedMineral.name} className="w-full h-full object-cover" />
+            </div>
+
+            <div className="w-full md:w-8/12 p-8 sm:p-10 overflow-y-auto custom-scrollbar">
+              <span className="text-[#D4AF37] text-[10px] tracking-[0.2em] uppercase mb-2 block font-medium">
+                {selectedMineral.subtitle || 'Geological Codex'}
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-10" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                {selectedMineral.name}
+              </h2>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div>
+                  <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6 border-b border-[#D4AF37]/20 pb-3">Material Data (Geological)</h3>
+                  <div className="space-y-5">
+                    {selectedMineral.materialData?.map((item: any, i: number) => (
+                      <div key={i}>
+                        <span className="text-white text-[10px] font-semibold uppercase tracking-widest block mb-1.5">{item.label}</span>
+                        <span className="text-gray-400 text-sm font-light leading-[1.8]">{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6 border-b border-[#D4AF37]/20 pb-3">Resonance Data (Energetic)</h3>
+                  <div className="space-y-5">
+                    {selectedMineral.resonanceData?.map((item: any, i: number) => (
+                      <div key={i}>
+                        <span className="text-white text-[10px] font-semibold uppercase tracking-widest block mb-1.5">{item.label}</span>
+                        <span className="text-gray-400 text-sm font-light leading-[1.8]">{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 // --- Helper Components ---
-function MaterialCard({ mat }: { mat: any }) {
-  return (
-    <div className="group relative overflow-hidden rounded-2xl bento-card flex flex-col h-full border border-white/5 hover:border-white/20 transition-all duration-500">
-      <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-[#111]">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10"></div>
-        <img 
-          src={mat.image} 
-          alt={mat.name} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-        />
-        <div className="absolute top-4 left-4 z-20 bg-black/50 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
-          <span className={`text-[10px] uppercase tracking-widest font-semibold ${mat.type === 'Soul' ? 'text-[#D4AF37]' : 'text-gray-300'}`}>
-            {mat.type}
-          </span>
-        </div>
-      </div>
-      <div className="p-6 relative z-20 flex-grow flex flex-col bg-[#050505] border-t border-white/5">
-        <h3 className="text-2xl font-light text-white mb-3 font-serif tracking-wide group-hover:text-[#D4AF37] transition-colors">{mat.name}</h3>
-        <p className="text-sm text-gray-400 leading-relaxed font-light">{mat.desc}</p>
-      </div>
-    </div>
-  );
-}
+
 
 function DetailItem({ label, value, icon, onCopy, isCopied, truncate = true }: DetailItemProps) {
   return (
@@ -859,7 +1089,12 @@ function SponsorLogo({ src, alt }: { src: string; alt: string }) {
         alt={alt} 
         /* UPDATED HEIGHTS: Changed h-12 -> h-16 and h-20 -> h-28 */
         className="relative z-10 h-40 sm:h-50 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 drop-shadow-[0_0_10px_rgba(255,255,255,0.05)] group-hover:drop-shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
+      
       />
+    
+      
     </div>
+    
   );
 }
+
