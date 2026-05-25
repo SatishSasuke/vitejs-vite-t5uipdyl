@@ -233,15 +233,15 @@ export default function App() {
       `}} />
 
      {/* 1. UPDATED NAVBAR - PREMIUM GLOW & LOGOS */}
-      <nav className="fixed top-0 w-full z-50 bg-[#050505] border-b border-[#D4AF37]/10 px-6 h-20 flex justify-between items-center shadow-lg">
+      <nav className="fixed top-0 w-full z-50 bg-[#050505] border-b border-[#D4AF37]/10 px-4 sm:px-6 h-16 sm:h-20 flex justify-between items-center shadow-lg">
         
         {/* Left Side: Widely Spaced Text with Premium Glow */}
-        <div className="flex items-center relative">
-          {/* Ambient Background Flare (Creates the expensive atmospheric glow) */}
+        <div className="flex items-center relative shrink-0">
+          {/* Ambient Background Flare */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[200%] bg-[#D4AF37]/20 blur-xl rounded-full pointer-events-none"></div>
           
           <span 
-            className="relative z-10 font-light tracking-[0.4em] uppercase text-[9px] sm:text-[11px] text-white leading-none"
+            className="relative z-10 font-light tracking-[0.2em] sm:tracking-[0.4em] uppercase text-[8px] sm:text-[11px] text-white leading-none"
             style={{ 
               textShadow: '0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.3)' 
             }}
@@ -251,27 +251,27 @@ export default function App() {
         </div>
 
         {/* Right Side: 3 Mini Logos (Maximized & Brightened) */}
-        <div className="flex items-center justify-end gap-6 sm:gap-10">
+        <div className="flex items-center justify-end gap-3 sm:gap-8 shrink-0">
           
           {/* Mini Logo 1 */}
           <img 
             src="/Sunway.png" 
             alt="Sunway Synergy" 
-            className="h-8 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+            className="shrink-0 h-5 sm:h-8 md:h-10 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
           />
           
           {/* Mini Logo 2 */}
           <img 
-            src="/MBOR.png" 
+            src="/MBOR-W.png" 
             alt="Malaysia Book of Records" 
-            className="h-8 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+            className="shrink-0 h-5 sm:h-8 md:h-10 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
           />
           
           {/* Mini Logo 3 */}
           <img 
-            src="/MPAS.png" 
+            src="/roundcopMPAS.png" 
             alt="Malaysian Association" 
-            className="h-8 sm:h-11 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+            className="shrink-0 h-5 sm:h-8 md:h-10 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
           />
           
         </div>
