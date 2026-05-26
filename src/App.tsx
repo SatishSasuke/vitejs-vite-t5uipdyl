@@ -621,19 +621,41 @@ export default function App() {
           {/* --- LIGHT BODY MECHANISM SECTION --- */}
           <section className="relative z-10 max-w-5xl mx-auto px-4 pb-32">
             
-            {/* Title & Description */}
-            <div className="mb-12 text-center flex flex-col items-center">
-              <h3 className="text-[#D4AF37] text-xs sm:text-sm tracking-[0.3em] uppercase font-semibold mb-4">
-                Yogic & Varma Science
-              </h3>
-              <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                Light Body Mechanism
-              </h2>
-              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
-              
-              <p className="text-gray-400 max-w-3xl leading-loose font-light text-[10px] sm:text-xs tracking-[0.2em] uppercase text-center">
-                <span className="text-white font-medium">AGNI TATTWA:</span> THE INTEGRATION OF THE METEORITE (CELESTIAL IRON) AND RUBY ACTIVATES THE SOLAR PLEXUS. BY MIRRORING THE KUTTU VARMAM STRIKES, THE ARTWORK CAUTERISES THE NERVOUS SYSTEM, TRANSFORMING TAMASIC INERTIA INTO TEJAS (ILLUMINATION).
-              </p>
+          {/* --- YOGIC & VARMA SCIENCE CARD --- */}
+            <div className="bento-card rounded-2xl p-6 sm:p-8 relative overflow-hidden h-full">
+              {/* Subtle ambient glow in the corner */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-[#D4AF37]/5 blur-3xl rounded-full pointer-events-none"></div>
+
+              {/* Title & Subtitle */}
+              <div className="flex flex-col mb-8 relative z-10">
+                <h3 className="text-xl font-light text-white tracking-widest uppercase mb-3">
+                  Yogic & Varma Science
+                </h3>
+                <div className="flex flex-col gap-1.5 text-[10px] tracking-[0.2em] uppercase font-mono text-[#D4AF37]/80">
+                  <span>Element: Fire (Raw)</span>
+                  <span>State: Unprocessed / Kinetic Catalyst</span>
+                </div>
+              </div>
+
+              {/* Body Content */}
+              <div className="space-y-5 relative z-10">
+                {/* Bolded Header */}
+                <h4 className="text-sm font-medium text-white tracking-wider uppercase border-l-2 border-[#D4AF37] pl-3 mb-2">
+                  Bio Energetic Resonance & Kinetic Activation
+                </h4>
+                
+                <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
+                  In ancient bio-energetic sciences, the Raw Fire element operates on the primal frequency of Agni (Cosmic Fire). Within Yogic physiology, this raw mineral directly stimulates the Pingala Nadi—the body’s solar, heat-generating energetic channel. Its resonant frequency anchors into the Manipura Chakra (the Solar Plexus), serving as the physiological furnace that transforms latent human potential into explosive, kinetic action.
+                </p>
+                
+                <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
+                  Viewed through the lens of Varma Kalai (the ancient Siddha science of vital neural points), the raw fire frequency acts as a bio-electrical catalyst. It interacts specifically with the heat-governing Varmam points that regulate adrenaline, rhythm, and muscular ignition. This is the exact bio-electrical frequency required to enter the sustained, high-energy trance states observed in ancient traditional dances like the Dabus.
+                </p>
+                
+                <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
+                  When in proximity to the human bio-field, this raw mineral acts as an energetic amplifier. It mirrors the internal 'Spark' of the human body, visually and physically proving the Science of Oneness: the fire that forged the cosmos is the exact same electrical fire that commands human movement.
+                </p>
+              </div>
             </div>
 
             {/* Mid Section Box: ATT Points */}
@@ -671,74 +693,155 @@ export default function App() {
             
           </section>
           {/* --- THE TRINITY NARRATIVE SECTION --- */}
-          <section className="relative z-10 max-w-6xl mx-auto px-4 pb-32">
+          <section className="relative z-10 max-w-6xl mx-auto px-4 pb-32 mt-16">
             
-            {/* Title */}
+            {/* Title & Intro */}
             <div className="mb-16 text-center flex flex-col items-center">
               <h2 className="text-3xl sm:text-5xl font-light text-white tracking-widest uppercase mb-4" style={{ fontFamily: '"Cinzel", "Times New Roman", serif', color: '#ffffff' }}>
-              The Trinity Narrative
+                The Trinity Narrative
               </h2>
-              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8"></div>
-            </div>
-
-            {/* Image Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-6"></div>
               
-              {/* Image 1: The Roads */}
-              <div className="group relative overflow-hidden rounded-2xl bento-card border border-[#D4AF37]/20 transition-all duration-700 hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                <div className="relative h-[450px] sm:h-[600px] w-full overflow-hidden bg-[#111]">
-                  <img 
-                    src="/Paint1.png" 
-                    alt="The Roads | Herman WSY" 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                  />
-                  {/* Cinematic gradient fade at the bottom for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
-                </div>
-                
-                {/* Floating Text Overlay */}
-                <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-[#D4AF37] text-xl sm:text-2xl tracking-[0.2em] uppercase font-light mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                    The Roads
-                  </h3>
-                  <div className="flex items-center gap-4 w-full justify-center">
-                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
-                    <span className="text-gray-400 text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium">
-                      Herman WSY
-                    </span>
-                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+              {/* New Subtitle */}
+              <h3 className="text-sm sm:text-base font-medium text-[#D4AF37] tracking-[0.2em] uppercase mb-8">
+                The Physical Manifestation : Ulu Kinta Geothermal Hot Springs
+              </h3>
+              
+              {/* New Intro Body */}
+              <p className="text-sm sm:text-base text-gray-400 leading-[1.8] font-light tracking-wide max-w-4xl text-center">
+                Within the Kinta Valley Geopark, the Raw Fire element does not manifest in the sky; it radiates from deep within the Earth. It is the subterranean geothermal spark that heats the ancient waters of the hot springs, acting as the primal catalyst for both the spiritual myths and the living ecosystem of the region. This raw kinetic heat is documented in the Lithic Codex through two distinct artistic lenses.
+              </p>
+            </div>
+
+            {/* Image & Narrative Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 mb-20">
+              
+              {/* Artwork 1: The Roads (Herman WSY) */}
+              <div className="flex flex-col group">
+                {/* YOUR ORIGINAL STUNNING IMAGE CARD */}
+                <div className="relative overflow-hidden rounded-2xl bento-card border border-[#D4AF37]/20 transition-all duration-700 hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)] mb-8">
+                  <div className="relative h-[400px] sm:h-[500px] w-full overflow-hidden bg-[#111]">
+                    <img 
+                      src="/Paint1.png" 
+                      alt="The Roads | Herman WSY" 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
                   </div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-[#D4AF37] text-xl sm:text-2xl tracking-[0.2em] uppercase font-light mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                      The Roads
+                    </h3>
+                    <div className="flex items-center gap-4 w-full justify-center">
+                      <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                      <span className="text-gray-400 text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium">
+                        Herman WSY
+                      </span>
+                      <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* THE NEW NARRATIVE TEXT */}
+                <div className="px-2">
+                  <div className="mb-4 border-l-2 border-[#D4AF37] pl-4">
+                    <h4 className="text-lg font-light text-white tracking-widest uppercase mb-1" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                      The Biodiversity of The Hotsprings
+                    </h4>
+                    <span className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] block font-mono">Artwork Curation by Herman WSY</span>
+                  </div>
+                  <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
+                    Moving from myth to the physical realm, Herman’s artwork documents the living, breathing reality forged by this geothermal fire. The raw heat of the earth creates a highly specialised micro-climate—a steaming, nutrient-rich environment that supports a unique matrix of flora and fauna. Herman captures the exact moment the Raw Fire element transforms into life-sustaining energy, immortalising the vibrant, thriving ecosystem of the hot springs.
+                  </p>
                 </div>
               </div>
 
-              {/* Image 2: The Roots */}
-              <div className="group relative overflow-hidden rounded-2xl bento-card border border-[#D4AF37]/20 transition-all duration-700 hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                <div className="relative h-[450px] sm:h-[600px] w-full overflow-hidden bg-[#111]">
-                  <img 
-                    src="/Paint2.png" 
-                    alt="The Roots | Mashitah N" 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                  />
-                  {/* Cinematic gradient fade at the bottom for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
-                </div>
-                
-                {/* Floating Text Overlay */}
-                <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-[#D4AF37] text-xl sm:text-2xl tracking-[0.2em] uppercase font-light mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
-                    The Roots
-                  </h3>
-                  <div className="flex items-center gap-4 w-full justify-center">
-                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
-                    <span className="text-gray-400 text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium">
-                      Mashitah N
-                    </span>
-                    <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+              {/* Artwork 2: The Roots (Mashitah N) */}
+              <div className="flex flex-col group">
+                {/* YOUR ORIGINAL STUNNING IMAGE CARD */}
+                <div className="relative overflow-hidden rounded-2xl bento-card border border-[#D4AF37]/20 transition-all duration-700 hover:border-[#D4AF37]/50 shadow-[0_10px_30px_rgba(0,0,0,0.5)] mb-8">
+                  <div className="relative h-[400px] sm:h-[500px] w-full overflow-hidden bg-[#111]">
+                    <img 
+                      src="/Paint2.png" 
+                      alt="The Roots | Mashitah N" 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
                   </div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col items-center text-center z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-[#D4AF37] text-xl sm:text-2xl tracking-[0.2em] uppercase font-light mb-2" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                      The Roots
+                    </h3>
+                    <div className="flex items-center gap-4 w-full justify-center">
+                      <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                      <span className="text-gray-400 text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium">
+                        Mashitah N
+                      </span>
+                      <div className="h-[1px] w-8 bg-[#D4AF37]/30"></div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* THE NEW NARRATIVE TEXT */}
+                <div className="px-2">
+                  <div className="mb-4 border-l-2 border-[#D4AF37] pl-4">
+                    <h4 className="text-lg font-light text-white tracking-widest uppercase mb-1" style={{ fontFamily: '"Cinzel", "Times New Roman", serif' }}>
+                      The Nagas of the Hotsprings
+                    </h4>
+                    <span className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] block font-mono">Artwork Curation by Mashitah N</span>
+                  </div>
+                  <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
+                    In local mythology and ancient belief systems, raw geothermal energy is often personified as the Naga, the primordial serpent deity of the earth and waters. Mashitah N’s artwork captures this intangible spiritual psyche, visualising the intense, boiling heat of the springs as the kinetic breath and restless energy of the sleeping Naga. Through her lens, the Raw Fire element is preserved not just as heat, but as a conscious, ancient guardian of the valley.
+                  </p>
                 </div>
               </div>
 
             </div>
+
+            {/* Outro Body (The Connective Tissue) */}
+            <div className="max-w-5xl mx-auto relative z-10 p-8 sm:p-10 bg-[#111111]/50 backdrop-blur-sm border border-[#D4AF37]/20 rounded-2xl shadow-[0_0_40px_rgba(212,175,55,0.05)]">
+              <p className="text-sm sm:text-base text-[#D4AF37]/90 leading-[2] font-light tracking-wide text-center italic">
+                Within the Lithic Codex, the Raw Fire does not exist in isolation; it is inextricably bound to its energetic twin: The Refined Fire. The artworks of Herman and Mashitah N serve as the vital connective tissue between these two states of matter. By capturing the untamed spiritual heat of the Nagas (Roots) and the living ecosystem of the Biodiversity (Roads), their combined works ground this primal energy. They act as the necessary evolutionary pathway, bridging the "uncontrolled explosion" of the Raw Fire toward its eventual mastery, the radiant, laser-like precision (Tejas) of the Refined Fire.
+              </p>
+            </div>
+            {/* --- "VIEW REFINED FIRE" TRANSITION BUTTON --- */}
+            <div className="mt-20 flex justify-center relative z-10">
+              <button 
+                onClick={() => {}} // Empty function for now!
+                className="group relative flex items-center justify-center gap-6 px-12 py-5 cursor-pointer overflow-hidden transition-all duration-700"
+              >
+                {/* Decorative Geometric Corner Brackets */}
+                <div className="absolute inset-0 border border-[#D4AF37]/20 transition-colors duration-500 group-hover:border-[#D4AF37]/0"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+
+                {/* Animated Gold Sweep Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#f1d570] to-[#D4AF37] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                
+                {/* Button Text */}
+                <span className="relative z-10 text-xs sm:text-sm font-medium tracking-[0.4em] text-[#D4AF37] uppercase transition-colors duration-700 group-hover:text-black">
+                  View Refined Fire
+                </span>
+
+                {/* Animated Arrow */}
+                <svg 
+                  className="relative z-10 w-4 h-4 text-[#D4AF37] group-hover:text-black transition-all duration-700 group-hover:translate-x-3" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+
+                {/* Hover Glow Aura */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[0_0_50px_rgba(212,175,55,0.6)] transition-opacity duration-700 pointer-events-none"></div>
+              </button>
+            </div>
+
           </section>
         </div>
       )}
@@ -960,8 +1063,8 @@ export default function App() {
         </div>
       )}
 
-      {/* Footer */}
-      {/* Footer */}
+    
+     {/* Footer */}
       <footer className="border-t border-white/10 py-16 text-center bg-[#000000] relative z-10">
         <div className="max-w-4xl mx-auto px-4 flex flex-col items-center">
           
@@ -975,24 +1078,9 @@ export default function App() {
             © 2026 ISHWAR ARCHIVES LEGACY. PRODUCED IN PARTNERSHIP WITH SUNWAY SYNERGY.<br className="hidden md:block" /> AUTHENTICATED ON POLYGON BLOCKCHAIN.
           </p>
 
-          {/* VIP Sponsor Logos - Expanded Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-12 w-full max-w-5xl mx-auto mt-12 items-center">
-            
-            {/* Logo 1: The Banjaran */}
-            <SponsorLogo src="/the-banjaran-logo.jpg" alt="The Banjaran" />
-            
-            {/* Logo 2: Sunway */}
-            <SponsorLogo src="/Sunway_logo.png" alt="Sunway Synergy" />
-            
-            {/* Logo 3: FAI */}
-            <SponsorLogo src="/FAI_LOGO-removebg-preview.png" alt="FAI" />
-            
-            {/* Logo 4: Wellness */}
-            <SponsorLogo src="/wellness_logo-removebg-preview.png" alt="Wellness" />
-            
-            {/* Logo 5: Ishwar */}
+          {/* The Ishwar Logo */}
+          <div className="flex justify-center w-full max-w-sm mx-auto items-center">
             <SponsorLogo src="/IshwarLogo.png" alt="Ishwar" />
-
           </div>
 
         </div>
