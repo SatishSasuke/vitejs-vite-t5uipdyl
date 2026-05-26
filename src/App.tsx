@@ -37,7 +37,7 @@ const MOCK_DATA = {
   artist: "Elena Rostova",
   year: "2026",
   descriptionLink: "https://pemetaanbudaya.jkkn.gov.my/en/senibudaya/detail/741",
-  descriptionText: "This work is a topographical record of spiritual endurance.Utilising the raw limestone and red earth harvested from the living laboratory @ the banjaran’s steam cave, I have lithified the geothermal heat into a physical plane through the fossilisation of one of perak’s cultural warrior dance; dabus.",
+  descriptionText: "THIS WORK IS A TOPOGRAPHICAL RECORD OF SPIRITUAL ENDURANCE.UTILISING THE RAW LIMESTONE AND RED EARTH HARVESTED FROM THE LIVING LABORATORY @ THE BANJARAN’S STEAM CAVE, I HAVE LITHIFIED THE GEOTHERMAL HEAT INTO A PHYSICAL PLANE THROUGH THE FOSSILISATION OF ONE OF PERAK’S CULTURAL WARRIOR DANCE; DABUS.",
   imageUrl: "/sculpture.png", 
   artRegistryId: "IA-VOL4-FIRE-005",
   serialNumber: "SN-2026-04-1901",
@@ -232,48 +232,42 @@ export default function App() {
         }
       `}} />
 
-     {/* 1. UPDATED NAVBAR - PREMIUM GLOW & LOGOS */}
-      <nav className="fixed top-0 w-full z-50 bg-[#050505] border-b border-[#D4AF37]/10 px-4 sm:px-6 h-16 sm:h-20 flex justify-between items-center shadow-lg">
+     {/* 1. UPDATED NAVBAR - PERFECT RESPONSIVE FIT & Z-INDEX FIX */}
+      <nav className="fixed top-0 w-full z-[100] bg-[#050505] border-b border-[#D4AF37]/10 shadow-lg overflow-hidden">
         
-        {/* Left Side: Widely Spaced Text with Premium Glow */}
-        <div className="flex items-center relative shrink-0">
-          {/* Ambient Background Flare */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[200%] bg-[#D4AF37]/20 blur-xl rounded-full pointer-events-none"></div>
-          
-          <span 
-            className="relative z-10 font-light tracking-[0.2em] sm:tracking-[0.4em] uppercase text-[8px] sm:text-[11px] text-white leading-none"
-            style={{ 
-              textShadow: '0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.3)' 
-            }}
-          >
-            The Living Laboratory
-          </span>
-        </div>
+        {/* INNER WRAPPER: Keeps items perfectly framed on huge full-screen monitors */}
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex justify-between items-center">
 
-        {/* Right Side: 3 Mini Logos (Maximized & Brightened) */}
-        <div className="flex items-center justify-end gap-3 sm:gap-8 shrink-0">
-          
-          {/* Mini Logo 1 */}
-          <img 
-            src="/Sunway.png" 
-            alt="Sunway Synergy" 
-            className="shrink-0 h-5 sm:h-8 md:h-10 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
-          />
-          
-          {/* Mini Logo 2 */}
-          <img 
-            src="/MBOR-W.png" 
-            alt="Malaysia Book of Records" 
-            className="shrink-0 h-5 sm:h-8 md:h-10 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
-          />
-          
-          {/* Mini Logo 3 */}
-          <img 
-            src="/roundcopMPAS.png" 
-            alt="Malaysian Association" 
-            className="shrink-0 h-5 sm:h-8 md:h-10 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
-          />
-          
+          {/* Left Side: Title */}
+          <div className="flex items-center relative shrink-0">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[200%] bg-[#D4AF37]/20 blur-xl rounded-full pointer-events-none"></div>
+            <span 
+              className="relative z-10 font-light tracking-[0.15em] sm:tracking-[0.4em] uppercase text-[10px] sm:text-[11px] text-white leading-[1.4] sm:leading-none"
+              style={{ textShadow: '0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.3)' }}
+            >
+              The Living <br className="sm:hidden" />Laboratory
+            </span>
+          </div>
+
+          {/* Right Side: 3 Mini Logos */}
+          <div className="flex items-center justify-end gap-3 sm:gap-8 shrink-0">
+            <img 
+              src="/Sunway.png" 
+              alt="Sunway Synergy" 
+              className="shrink-0 h-4 sm:h-7 md:h-9 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+            />
+            <img 
+              src="/MBOR-W.png" 
+              alt="Malaysia Book of Records" 
+              className="shrink-0 h-4 sm:h-7 md:h-9 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+            />
+            <img 
+              src="/roundcopMPAS.png" 
+              alt="Malaysian Association" 
+              className="shrink-0 h-4 sm:h-7 md:h-9 w-auto object-contain brightness-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] cursor-pointer"
+            />
+          </div>
+
         </div>
       </nav>
 
@@ -285,11 +279,12 @@ export default function App() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
             {/* 3D Floating Sculpture Container */}
-            <div className="relative z-10 sculpture-container flex flex-col items-center mb-8">
+            <div className="relative z-10 sculpture-container flex flex-col items-center mb-8 w-full px-4">
               <img 
                 src={MOCK_DATA.imageUrl} 
                 alt="Sculpture"
-                className="animate-float w-[280px] h-[350px] sm:w-[350px] sm:h-[450px] object-contain drop-shadow-2xl"
+                /* 👇 UPDATED CLASSES: w-full, max-w, and h-auto allows it to infinitely scale! 👇 */
+                className="animate-float w-full max-w-[260px] sm:max-w-[350px] md:max-w-[400px] h-auto object-contain drop-shadow-2xl"
                 draggable="false"
               />
             </div>
@@ -323,7 +318,7 @@ export default function App() {
                   href="/certificate.jpg" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs group"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs group mb-10"
                 >
                   View COA
                   <ExternalLink size={14} className="group-hover:scale-110 transition-transform" />
@@ -334,7 +329,7 @@ export default function App() {
                   href="https://www.youtube.com/watch?v=kfD9L_aNf6w" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-none border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-none border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs flex items-center justify-center gap-2 group mb-10"
                 >
                   <Play size={12} className="group-hover:scale-110 transition-transform fill-current" />
                   View Creation
@@ -352,81 +347,97 @@ export default function App() {
                 <h2 className="text-lg font-light text-white tracking-widest uppercase">Artwork Specifications</h2>
               </div>
               
-              {/* Inner Grid with Mini-Cards */}
+              {/* Inner Grid with Mini-Cards (Upgraded to DetailItem boxes) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border-b border-white/5 pb-8 mb-6">
                 
-                {/* Individual Spec Cards */}
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Artist</span>
-                  <span className="text-sm text-gray-200 font-medium">Raajashri Vegnishwar Nair</span>
-                </div>
+                <DetailItem 
+                  icon={<Palette size={14} />} 
+                  label="Artist" 
+                  value="Raajashri Vegnishwar Nair" 
+                  truncate={false}
+                />
                 
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Year</span>
-                  <span className="text-sm text-gray-200 font-mono">2026</span>
-                </div>
+                <DetailItem 
+                  icon={<Box size={14} />} 
+                  label="Year" 
+                  value="2026" 
+                />
                 
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Series</span>
-                  <span className="text-sm text-gray-200">VoL IV | The Living Geode</span>
-                </div>
+                <DetailItem 
+                  icon={<Layers size={14} />} 
+                  label="Series" 
+                  value="VoL IV | The Living Geode" 
+                  truncate={false}
+                />
                 
                 {/* Spans 2 columns to give long text room */}
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl sm:col-span-2">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Type</span>
-                  <span className="text-sm text-gray-200">Geological Surrealism Fine Art Sculpture</span>
+                <div className="sm:col-span-2">
+                  <DetailItem 
+                    icon={<Diamond size={14} />} 
+                    label="Type" 
+                    value="Geological Surrealism Fine Art Sculpture" 
+                    truncate={false}
+                  />
                 </div>
                 
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Size</span>
-                  <span className="text-sm text-gray-200">1.3 x 1.9 ft</span>
-                </div>
+                <DetailItem 
+                  icon={<MapPin size={14} />} 
+                  label="Size" 
+                  value="1.3 x 1.9 ft" 
+                />
                 
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Weight</span>
-                  <span className="text-sm text-gray-200">26kg</span>
-                </div>
+                <DetailItem 
+                  icon={<Gem size={14} />} 
+                  label="Weight" 
+                  value="26kg" 
+                />
                 
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Edition</span>
-                  <span className="text-sm text-gray-200">Master Piece 1/1</span>
-                </div>
+                <DetailItem 
+                  icon={<ShieldCheck size={14} />} 
+                  label="Edition" 
+                  value="Master Piece 1/1" 
+                />
                 
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Digital Creation</span>
-                  <span className="text-sm text-gray-200">No</span>
-                </div>
+                <DetailItem 
+                  icon={<Sparkles size={14} />} 
+                  label="Digital Creation" 
+                  value="No" 
+                />
                 
                 {/* Spans all 3 columns across the bottom */}
-                <div className="bg-white/[0.02] border border-white/5 p-4 rounded-xl sm:col-span-2 md:col-span-3">
-                  <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Signature</span>
-                  <span className="text-sm text-gray-200">Signed on the Upper Right Hand Corner</span>
+                <div className="sm:col-span-2 md:col-span-3">
+                  <DetailItem 
+                    icon={<Fingerprint size={14} />} 
+                    label="Signature" 
+                    value="Signed on the Upper Right Hand Corner" 
+                    truncate={false}
+                  />
                 </div>
                 
               </div>
 
               {/* Status & Purchase VIP Footer */}
-              <div className="bg-[#D4AF37]/5 p-5 rounded-xl border border-[#D4AF37]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="bg-[#D4AF37]/5 p-5 rounded-xl border border-[#D4AF37]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 ">
                 <div>
                   <span className="text-[9px] text-[#D4AF37] uppercase tracking-widest block mb-1">Purchased</span>
-                  <span className="text-sm text-gray-200">May 18, 2026 @ Living Laboratory</span>
+                  <span className="text-sm text-gray-200 ">May 18, 2026 @ Living Laboratory</span>
                 </div>
                 <div>
                   <span className="text-[9px] text-gray-500 uppercase tracking-widest block mb-1 sm:text-right">Status</span>
                   {/* Upgraded the SOLD badge to solid gold/black for premium contrast */}
-                  <span className="inline-block text-xs font-bold tracking-[0.2em] text-black bg-[#D4AF37] px-4 py-1.5 rounded-sm">SOLD</span>
+                  <span className="inline-block text-xs font-bold tracking-[0.2em] text-black bg-[#D4AF37] px-4 py-1.5 rounded-sm  ">SOLD</span>
                 </div>
               </div>
             </div>
             {/* Expanded Core Details Container */}
-            <div className="flex flex-col gap-4 w-full">
-              <div className="bento-card rounded-2xl p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-8">
+            <div className="flex flex-col gap-4 w-full mb-10 mt-3 ">
+              <div className="bento-card rounded-2xl p-6 sm:p-8 m ">
+                <div className="flex items-center gap-3 mb-10">
                   <Fingerprint className="text-[#D4AF37]" size={20} />
-                  <h2 className="text-lg font-light text-white tracking-widest uppercase">Blockchain Passport Identity</h2>
+                  <h2 className="text-lg font-light text-white tracking-widest uppercase ">Blockchain Passport Identity</h2>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 ">
                   <DetailItem 
                     label="Art Registry ID" 
                     value={MOCK_DATA.artRegistryId} 
@@ -622,7 +633,7 @@ export default function App() {
           <section className="relative z-10 max-w-5xl mx-auto px-4 pb-32">
             
           {/* --- YOGIC & VARMA SCIENCE CARD --- */}
-            <div className="bento-card rounded-2xl p-6 sm:p-8 relative overflow-hidden h-full">
+            <div className="bento-card rounded-2xl p-6 sm:p-8 relative overflow-hidden h-full mb-10">
               {/* Subtle ambient glow in the corner */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-[#D4AF37]/5 blur-3xl rounded-full pointer-events-none"></div>
 
@@ -644,16 +655,16 @@ export default function App() {
                   Bio Energetic Resonance & Kinetic Activation
                 </h4>
                 
-                <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
-                  In ancient bio-energetic sciences, the Raw Fire element operates on the primal frequency of Agni (Cosmic Fire). Within Yogic physiology, this raw mineral directly stimulates the Pingala Nadi—the body’s solar, heat-generating energetic channel. Its resonant frequency anchors into the Manipura Chakra (the Solar Plexus), serving as the physiological furnace that transforms latent human potential into explosive, kinetic action.
+                <p className="text-sm text-gray-400 leading-[1.9] font-light tracking-wide">
+                  IN ANCIENT BIO-ENERGETIC SCIENCES, THE RAW FIRE ELEMENT OPERATES ON THE PRIMAL FREQUENCY OF AGNI (COSMIC FIRE). WITHIN YOGIC PHYSIOLOGY, THIS RAW MINERAL DIRECTLY STIMULATES THE PINGALA NADI—THE BODY’S SOLAR, HEAT-GENERATING ENERGETIC CHANNEL. ITS RESONANT FREQUENCY ANCHORS INTO THE MANIPURA CHAKRA (THE SOLAR PLEXUS), SERVING AS THE PHYSIOLOGICAL FURNACE THAT TRANSFORMS LATENT HUMAN POTENTIAL INTO EXPLOSIVE, KINETIC ACTION.
                 </p>
                 
-                <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
-                  Viewed through the lens of Varma Kalai (the ancient Siddha science of vital neural points), the raw fire frequency acts as a bio-electrical catalyst. It interacts specifically with the heat-governing Varmam points that regulate adrenaline, rhythm, and muscular ignition. This is the exact bio-electrical frequency required to enter the sustained, high-energy trance states observed in ancient traditional dances like the Dabus.
+                <p className="text-sm text-gray-400 leading-[1.9] font-light tracking-wide">
+                  VIEWED THROUGH THE LENS OF VARMA KALAI (THE ANCIENT SIDDHA SCIENCE OF VITAL NEURAL POINTS), THE RAW FIRE FREQUENCY ACTS AS A BIO-ELECTRICAL CATALYST. IT INTERACTS SPECIFICALLY WITH THE HEAT-GOVERNING VARMAM POINTS THAT REGULATE ADRENALINE, RHYTHM, AND MUSCULAR IGNITION. THIS IS THE EXACT BIO-ELECTRICAL FREQUENCY REQUIRED TO ENTER THE SUSTAINED, HIGH-ENERGY TRANCE STATES OBSERVED IN ANCIENT TRADITIONAL DANCES LIKE THE DABUS.
                 </p>
                 
-                <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
-                  When in proximity to the human bio-field, this raw mineral acts as an energetic amplifier. It mirrors the internal 'Spark' of the human body, visually and physically proving the Science of Oneness: the fire that forged the cosmos is the exact same electrical fire that commands human movement.
+                <p className="text-sm text-gray-400 leading-[1.9] font-light tracking-wide">
+                  WHEN IN PROXIMITY TO THE HUMAN BIO-FIELD, THIS RAW MINERAL ACTS AS AN ENERGETIC AMPLIFIER. IT MIRRORS THE INTERNAL 'SPARK' OF THE HUMAN BODY, VISUALLY AND PHYSICALLY PROVING THE SCIENCE OF ONENESS: THE FIRE THAT FORGED THE COSMOS IS THE EXACT SAME ELECTRICAL FIRE THAT COMMANDS HUMAN MOVEMENT.
                 </p>
               </div>
             </div>
@@ -709,7 +720,7 @@ export default function App() {
               
               {/* New Intro Body */}
               <p className="text-sm sm:text-base text-gray-400 leading-[1.8] font-light tracking-wide max-w-4xl text-center">
-                Within the Kinta Valley Geopark, the Raw Fire element does not manifest in the sky; it radiates from deep within the Earth. It is the subterranean geothermal spark that heats the ancient waters of the hot springs, acting as the primal catalyst for both the spiritual myths and the living ecosystem of the region. This raw kinetic heat is documented in the Lithic Codex through two distinct artistic lenses.
+                WITHIN THE KINTA VALLEY GEOPARK, THE RAW FIRE ELEMENT DOES NOT MANIFEST IN THE SKY; IT RADIATES FROM DEEP WITHIN THE EARTH. IT IS THE SUBTERRANEAN GEOTHERMAL SPARK THAT HEATS THE ANCIENT WATERS OF THE HOT SPRINGS, ACTING AS THE PRIMAL CATALYST FOR BOTH THE SPIRITUAL MYTHS AND THE LIVING ECOSYSTEM OF THE REGION. THIS RAW KINETIC HEAT IS DOCUMENTED IN THE LITHIC CODEX THROUGH TWO DISTINCT ARTISTIC LENSES.
               </p>
             </div>
 
@@ -752,7 +763,7 @@ export default function App() {
                     <span className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] block font-mono">Artwork Curation by Herman WSY</span>
                   </div>
                   <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
-                    Moving from myth to the physical realm, Herman’s artwork documents the living, breathing reality forged by this geothermal fire. The raw heat of the earth creates a highly specialised micro-climate—a steaming, nutrient-rich environment that supports a unique matrix of flora and fauna. Herman captures the exact moment the Raw Fire element transforms into life-sustaining energy, immortalising the vibrant, thriving ecosystem of the hot springs.
+                    MOVING FROM MYTH TO THE PHYSICAL REALM, HERMAN’S ARTWORK DOCUMENTS THE LIVING, BREATHING REALITY FORGED BY THIS GEOTHERMAL FIRE. THE RAW HEAT OF THE EARTH CREATES A HIGHLY SPECIALISED MICRO-CLIMATE—A STEAMING, NUTRIENT-RICH ENVIRONMENT THAT SUPPORTS A UNIQUE MATRIX OF FLORA AND FAUNA. HERMAN CAPTURES THE EXACT MOMENT THE RAW FIRE ELEMENT TRANSFORMS INTO LIFE-SUSTAINING ENERGY, IMMORTALISING THE VIBRANT, THRIVING ECOSYSTEM OF THE HOT SPRINGS.
                   </p>
                 </div>
               </div>
@@ -793,7 +804,7 @@ export default function App() {
                     <span className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] block font-mono">Artwork Curation by Mashitah N</span>
                   </div>
                   <p className="text-sm text-gray-400 leading-[1.8] font-light tracking-wide">
-                    In local mythology and ancient belief systems, raw geothermal energy is often personified as the Naga, the primordial serpent deity of the earth and waters. Mashitah N’s artwork captures this intangible spiritual psyche, visualising the intense, boiling heat of the springs as the kinetic breath and restless energy of the sleeping Naga. Through her lens, the Raw Fire element is preserved not just as heat, but as a conscious, ancient guardian of the valley.
+                    IN LOCAL MYTHOLOGY AND ANCIENT BELIEF SYSTEMS, RAW GEOTHERMAL ENERGY IS OFTEN PERSONIFIED AS THE NAGA, THE PRIMORDIAL SERPENT DEITY OF THE EARTH AND WATERS. MASHITAH N’S ARTWORK CAPTURES THIS INTANGIBLE SPIRITUAL PSYCHE, VISUALISING THE INTENSE, BOILING HEAT OF THE SPRINGS AS THE KINETIC BREATH AND RESTLESS ENERGY OF THE SLEEPING NAGA. THROUGH HER LENS, THE RAW FIRE ELEMENT IS PRESERVED NOT JUST AS HEAT, BUT AS A CONSCIOUS, ANCIENT GUARDIAN OF THE VALLEY.
                   </p>
                 </div>
               </div>
@@ -868,11 +879,11 @@ export default function App() {
               </p>
             </div>
 
-            {/* --- THE VESSEL | BODY SECTION --- */}
-            <div className="mb-24">
+{/* --- THE VESSEL | BODY SECTION --- */}
+            <div className="mb-16 sm:mb-24">
               
               {/* 1. Subtitle Header */}
-              <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
+              <div className="flex items-center gap-3 mb-3 border-b border-white/10 pb-4">
                 <Box className="text-gray-500" size={24} />
                 <h2 className="text-2xl font-light text-white tracking-widest uppercase">
                   The Vessel <span className="text-gray-600 mx-2">|</span> <span className="text-gray-400">Body</span>
@@ -880,7 +891,8 @@ export default function App() {
               </div>
               
               {/* 2. Philosophical Description */}
-              <p className="text-gray-400 text-sm font-light tracking-wider max-w-4xl mb-14 leading-[1.8]">
+              {/* 👇 Changed mb-14 to mb-16 (or you can use mb-20) for a bigger gap 👇 */}
+              <p className="text-gray-400 text-sm font-light tracking-wider max-w-4xl mb-16 leading-[1.8]">
                 The unbreakable foundation of the physical plane. By synthesising deep-time limestone, resonant quartz, and organic red earth, the Vessel acts as the grounding matrix—capable of holding the untamed energy of creation without shattering.
               </p>
 
@@ -892,11 +904,12 @@ export default function App() {
               </div>
               
             </div>
+
             {/* --- THE SPARK | SOUL SECTION --- */}
             <div className="mb-24">
               
               {/* 1. Subtitle Header */}
-              <div className="flex items-center gap-3 mb-6 border-b border-[#D4AF37]/20 pb-4">
+              <div className="flex items-center gap-3 mb-3 border-b border-[#D4AF37]/20 pb-4">
                 <Diamond className="text-[#D4AF37]" size={24} />
                 <h2 className="text-2xl font-light text-white tracking-widest uppercase">
                   The Spark <span className="text-[#D4AF37]/50 mx-2">|</span> <span className="text-[#D4AF37]">Soul</span>
@@ -904,7 +917,8 @@ export default function App() {
               </div>
               
               {/* 2. Philosophical Description */}
-              <p className="text-gray-400 text-sm font-light tracking-wider max-w-4xl mb-14 leading-[1.8]">
+              {/* 👇 Changed mb-14 to mb-16 (or you can use mb-20) for a bigger gap 👇 */}
+              <p className="text-gray-400 text-sm font-light tracking-wider max-w-4xl mb-16 leading-[1.8]">
                 The catalyst of manifestation. Fusing the cosmic signature of iron-nickel meteorite with the passionate frequency of ruby, the Spark is the celestial, untamed heat that breathes kinetic life into the silent earth.
               </p>
 
