@@ -1182,21 +1182,5 @@ function DetailItem({ label, value, icon, onCopy, isCopied, truncate = true }: D
     </div>
   );
 }
-function SponsorLogo({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="group relative p-4 sm:p-6 rounded-2xl border border-transparent hover:border-[#D4AF37]/30 hover:bg-[#D4AF37]/5 transition-all duration-500 flex items-center justify-center cursor-pointer">
-      <div className="absolute inset-0 bg-[#D4AF37] opacity-0 group-hover:opacity-5 blur-xl transition-opacity duration-500 rounded-full"></div>
-      <img 
-        src={src} 
-        alt={alt} 
-        /* UPDATED HEIGHTS: Changed h-12 -> h-16 and h-20 -> h-28 */
-        className="relative z-10 h-40 sm:h-50 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 drop-shadow-[0_0_10px_rgba(255,255,255,0.05)] group-hover:drop-shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
-      
-      />
-    
-      
-    </div>
-    
-  );
-}
+
 
