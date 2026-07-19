@@ -1084,15 +1084,16 @@ export default function App() {
     { src: "/GeoparkKinta.png", alt: "Kinta Valley Geopark" },
     { src: "/MBOR.png", alt: "Malaysia Book of Records" },
   ].map((logo, index) => (
-    <img 
-      key={index}
-      src={logo.src} 
-      alt={logo.alt} 
-      className="h-10 sm:h-12 w-auto object-contain shrink-0 
-                 opacity-60 transition-all duration-500 
-                 hover:opacity-100 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] 
-                 cursor-pointer"
-    />
+    <div 
+      key={index} 
+      className="p-4 bg-[#FDFBF7]/5 border border-[#FDFBF7]/10 rounded-xl backdrop-blur-sm transition-all duration-500 hover:bg-[#FDFBF7]/10 hover:border-[#D4AF37]/30 group"
+    >
+      <img 
+        src={logo.src} 
+        alt={logo.alt} 
+        className="h-10 sm:h-12 w-auto object-contain shrink-0 opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105"
+      />
+    </div>
   ))}
 
 </div>
