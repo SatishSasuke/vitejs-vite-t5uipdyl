@@ -1072,10 +1072,9 @@ export default function App() {
             © 2026 ISHWAR ARCHIVES LEGACY. PRODUCED IN PARTNERSHIP WITH SUNWAY SYNERGY.<br className="hidden md:block" /> AUTHENTICATED ON POLYGON BLOCKCHAIN.
           </p>
 
-     {/* VIP Sponsor & Partner Logos */}
+{/* VIP Sponsor & Partner Logos */}
 <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 w-full mt-8">
   
-  {/* Logo Template with Hover Effect */}
   {[
     { src: "/IshwarLogo.png", alt: "Ishwar Archives" },
     { src: "/the-banjaran-logo.jpg", alt: "The Banjaran" },
@@ -1084,16 +1083,15 @@ export default function App() {
     { src: "/GeoparkKinta.png", alt: "Kinta Valley Geopark" },
     { src: "/MBOR.png", alt: "Malaysia Book of Records" },
   ].map((logo, index) => (
-    <div 
-      key={index} 
-      className="p-4 bg-[#FDFBF7]/5 border border-[#FDFBF7]/10 rounded-xl backdrop-blur-sm transition-all duration-500 hover:bg-[#FDFBF7]/10 hover:border-[#D4AF37]/30 group"
-    >
-      <img 
-        src={logo.src} 
-        alt={logo.alt} 
-        className="h-10 sm:h-12 w-auto object-contain shrink-0 opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105"
-      />
-    </div>
+    <img 
+      key={index}
+      src={logo.src} 
+      alt={logo.alt} 
+      className="h-10 sm:h-12 w-auto object-contain shrink-0 
+                 opacity-100 transition-transform duration-500 
+                 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]
+                 hover:scale-110 cursor-pointer"
+    />
   ))}
 
 </div>
