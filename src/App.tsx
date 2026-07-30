@@ -236,7 +236,7 @@ export default function App() {
       <nav className="fixed top-0 w-full z-[100] bg-[#050505] border-b border-[#D4AF37]/10 shadow-lg overflow-hidden">
         
         {/* INNER WRAPPER */}
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex justify-center items-center">
+        <div className="w-[95%] max-w-[1600px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex justify-center items-center">
 
           {/* Centered Title */}
           <div className="flex items-center relative text-center">
@@ -322,7 +322,7 @@ export default function App() {
           </section>
 
           {/* Bento Box Dashboard UI */}
-          <main className="relative z-10 max-w-4xl mx-auto px-4 pb-24 w-full">
+          <main className="relative z-10 w-[95%] max-w-[1400px] mx-auto px-4 pb-24">
             {/* Row 0: Artwork Specifications - HIGHLY ORGANIZED GRID */}
             <div className="bento-card rounded-2xl p-6 sm:p-8 w-full">
               <div className="flex items-center gap-3 mb-8">
@@ -687,7 +687,7 @@ export default function App() {
             
           </section>
        {/* --- PILLARS OF CONVERGENCE SECTION (Formerly Trinity Narrative) --- */}
-          <section className="relative z-10 max-w-6xl mx-auto px-4 pb-32 mt-16 sm:mt-24">
+          <section className="relative z-10 w-[95%] max-w-[1600px] mx-auto px-4 pb-32 mt-16 sm:mt-24">
             
           {/* Title & Intro */}
             <div className="mb-16 text-center flex flex-col items-center">
@@ -1060,41 +1060,40 @@ export default function App() {
     
     {/* Footer */}
       <footer className="border-t border-white/10 py-16 text-center bg-[#000000] relative z-10">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col items-center">
+        <div className="w-[95%] max-w-[1600px] mx-auto px-4 flex flex-col items-center">
           
           {/* Security Icon */}
           <div className="flex items-center justify-center text-[#D4AF37] mb-6">
             <ShieldCheck size={20} />
           </div>
 
-          {/* Legacy & Authentication Text */}
+          {/* Legacy & Authentication Text (Sunway text removed) */}
           <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-[0.2em] leading-loose mb-12 text-center max-w-2xl">
-            © 2026 ISHWAR ARCHIVES LEGACY. PRODUCED IN PARTNERSHIP WITH SUNWAY SYNERGY.<br className="hidden md:block" /> AUTHENTICATED ON POLYGON BLOCKCHAIN.
+            © 2026 ISHWAR ARCHIVES LEGACY.<br className="hidden md:block" /> AUTHENTICATED ON POLYGON BLOCKCHAIN.
           </p>
 
-{/* VIP Sponsor & Partner Logos */}
-<div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 w-full mt-8">
-  
-  {[
-    { src: "/IshwarLogo.png", alt: "Ishwar Archives" },
-    { src: "/the-banjaran-logo.jpg", alt: "The Banjaran" },
-    { src: "/Sunway.png", alt: "Sunway Synergy" },
-    { src: "/TourismPerak.png", alt: "Tourism Perak" },
-    { src: "/GeoparkKinta.png", alt: "Kinta Valley Geopark" },
-    { src: "/MBOR.png", alt: "Malaysia Book of Records" },
-  ].map((logo, index) => (
-    <img 
-      key={index}
-      src={logo.src} 
-      alt={logo.alt} 
-      className="h-10 sm:h-12 w-auto object-contain shrink-0 
-                 opacity-100 transition-transform duration-500 
-                 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]
-                 hover:scale-110 cursor-pointer"
-    />
-  ))}
+          {/* VIP Sponsor & Partner Logos (Sunway logo removed) */}
+          <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 w-full mt-8">
+            
+            {[
+              { src: "/IshwarLogo.png", alt: "Ishwar Archives" },
+              { src: "/the-banjaran-logo.jpg", alt: "The Banjaran" },
+              { src: "/TourismPerak.png", alt: "Tourism Perak" },
+              { src: "/GeoparkKinta.png", alt: "Kinta Valley Geopark" },
+              { src: "/MBOR.png", alt: "Malaysia Book of Records" },
+            ].map((logo, index) => (
+              <img 
+                key={index}
+                src={logo.src} 
+                alt={logo.alt} 
+                className="h-10 sm:h-12 w-auto object-contain shrink-0 
+                           opacity-100 transition-transform duration-500 
+                           drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]
+                           hover:scale-110 cursor-pointer"
+              />
+            ))}
 
-</div>
+          </div>
 
         </div>
       </footer>
