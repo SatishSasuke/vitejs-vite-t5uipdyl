@@ -285,14 +285,31 @@ export default function App() {
                 </a>
 
                 {/* ✨ UPDATED: Direct Google Forms Link */}
+                {/* ✨ UPGRADED: Animated RSVP Google Forms Link */}
                 <a 
                   href="https://docs.google.com/forms/d/e/1FAIpQLSe32k3FH7Hw_iG6_v7HCpoIowVgKz5dRq9rQ55YhoL4lBGdZA/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 rounded-none border border-[#D4AF37] bg-[#D4AF37]/10 text-white hover:bg-[#D4AF37] hover:text-black transition-all duration-500 font-medium tracking-[0.2em] uppercase text-xs flex items-center justify-center gap-2 group mb-4 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]"
+                  className="group relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-3.5 mb-4 cursor-pointer overflow-hidden transition-all duration-700"
                 >
-                  <CalendarCheck size={14} className="group-hover:scale-110 transition-transform" />
-                  RSVP To Exhibition
+                  {/* Container Borders & Corner Brackets */}
+                  <div className="absolute inset-0 border border-[#D4AF37]/50 transition-colors duration-500 group-hover:border-[#D4AF37]/0"></div>
+                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                  <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                  <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#D4AF37] transition-all duration-500 group-hover:scale-125"></div>
+                  
+                  {/* The Golden Swipe Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#f1d570] to-[#D4AF37] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                  
+                  {/* Button Content */}
+                  <CalendarCheck size={14} className="relative z-10 text-[#D4AF37] group-hover:text-black transition-colors duration-700" />
+                  <span className="relative z-10 text-xs font-medium tracking-[0.2em] text-[#D4AF37] uppercase transition-colors duration-700 group-hover:text-black">
+                    RSVP To Exhibition
+                  </span>
+                  
+                  {/* Ambient Glow */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-opacity duration-700 pointer-events-none"></div>
                 </a>
               </div>
             </div>
